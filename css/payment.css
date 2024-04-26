@@ -1,0 +1,129 @@
+:root {
+    --primary-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+main {
+    max-width: 95em;
+    display: flex;
+    padding: 0 28px;
+}
+.wrap {
+    display: flex;
+    padding: 0 2em;
+}
+.wrap-main {
+    width: 52%;
+    padding: 28px 28px 0 0;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+}
+.logo img {
+    width: 111px;
+    height: 54px;
+}
+.col {
+    width: 50%;
+    padding: 0 14px;
+}
+article {
+    display: flex;
+}
+h2 {
+    font-size: 18px;
+    font-family: var(--primary-font);
+}
+.wrap-main input {
+    width: 350px;
+    height: 44px;
+    margin: 0.4em;
+    padding: 0.5em;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px #d9d9d9 solid;
+    border-radius: 4px;
+}
+.checkbox {
+    margin: 5px 2px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+.checkbox input {
+    width: 15px;
+    height: 15px;
+}
+textarea {
+    margin-left: 5px;
+    width: 343px;
+    height: 60px;
+    outline: none;
+}
+
+/* sidebar */
+.sidebar {
+    width: 32%;
+    background-color: #fde7ff;
+    position: relative;
+    padding: 20px 25px;
+    box-sizing: border-box;
+}
+.sidebar::after {
+    content: "";
+    background-color: #fde7ff;
+    display: block;
+    width: 300%;
+    box-shadow: 0 -1px 0 #FDE7FF inset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.sidebar-header {
+    font-weight: bold;
+    font-family: var(--primary-font);
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.product-thumbnail {
+    position: relative;
+}
+.product-wraper {
+    margin-top: 8px;
+}
+.quantity {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fcaf17;
+    text-align: center;
+}
+.prodct-description {
+    text-align: left;
+    vertical-align: top;
+    padding-left: 10px;
+    height: 60px;
+    vertical-align: bottom;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.prodct-description span {
+    font-size: 13px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: black;
+}
+.prodct-description-propertype {
+    display: block;
+}

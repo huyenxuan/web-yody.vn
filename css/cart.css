@@ -1,0 +1,217 @@
+.bg{
+    background-color: #e6e6e6;
+    width: 100%;
+    height: auto;
+    margin-top: 90px;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.main-content .content-left{
+    padding: 30px;
+    width: 60%;
+    border: 1px solid transparent;
+    background-color: white;
+    border-radius: 4px;
+    height: fit-content;
+}
+
+.main-content .content-right{
+    width: 30%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: fit-content;
+    padding: unset;
+}
+
+.content-left div.title{
+    display: flex;
+}
+
+.content-left div.title > p{
+    font-size: 17px;
+    font-weight: 400;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.content-left div.title > span{
+    color: #888686;
+}
+
+.content-left .chiTiet-hd{
+    display: flex;
+    justify-content: space-between;
+}
+.content-left p{
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.content-left > .chiTiet-hd .product{
+    width: 60%;
+}
+
+.content-left > .chiTiet-hd .unit-price,
+.content-left > .chiTiet-hd .number,
+.content-left > .chiTiet-hd .sum-price{
+    width: 13.333%;
+}
+
+.content-left > .chiTiet-hd .unit-price,
+.content-left > .chiTiet-hd .number{
+    text-align: center;
+}
+
+.content-left > .chiTiet-hd .sum-price{
+    text-align: end;
+}
+
+.chiTiet-sanPham{
+    position: relative;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.icon-remove{
+    position: absolute;
+    z-index: 999;
+    display: block;
+    right: 0;
+    bottom: 0;
+    padding: 3px;
+}
+
+.icon-remove > i{
+    font-size: 20px;
+}
+
+.icon-remove:hover > i{
+    color: #FCAF17;
+    cursor: pointer;
+}
+
+.chiTiet-sanPham .tt-product{
+    width: 60%;
+    display: flex;
+}
+.chiTiet-sanPham .tt-product img{
+    width: 90px;
+    height: 120px;
+}
+
+.chiTiet-sanPham .tt-product .desc{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chiTiet-sanPham .tt-product > div.desc a{
+    color: black;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+.chiTiet-sanPham .tt-product > div.desc a:hover{
+    color: #FCAF17;
+}
+
+.chiTiet-sanPham .price-product,
+.chiTiet-sanPham .number-product,
+.chiTiet-sanPham .sum-price{
+    width: 13.333%;
+}
+
+.chiTiet-sanPham .price-product,
+.chiTiet-sanPham .number-product{
+    text-align: center;
+}
+
+.chiTiet-sanPham .sum-price{
+    text-align: end;
+}
+
+.chiTiet-sanPham .number-product{
+    display: flex;
+    justify-content: center;
+}
+
+.chiTiet-sanPham .number-product span{
+    display: block;
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+}
+
+.chiTiet-sanPham .number-product .down{
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    cursor: pointer;
+}
+
+.chiTiet-sanPham .number-product .quantity{
+    border-left: transparent;
+    border-right: transparent;
+}
+
+.chiTiet-sanPham .number-product .increase{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+}
+
+/* content right */
+.content-right .title{
+    background-color: #FEECC7;
+    padding: 6px 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 14px;
+}
+
+.content-right > div.wrap{
+    background-color: white;
+    padding: 10px;
+}
+
+.content-right .tong-hoaDon{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.content-right .wrap a{
+    width: 100%;
+    background-color: #FCAF17;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.footer{
+    margin-top: unset !important;
+}
