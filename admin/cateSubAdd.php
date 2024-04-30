@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $categorySub_name = $_POST['categorySub_name'];
     $insert_categorySub = $categorySub->insert_categorySub($category_id, $categorySub_name);
     // Chuyển hướng người dùng đến trang 
-    header("Location: cateSubAdd.php?category_name=" . urlencode($result['category_name']) . "&categorySub_name=" . urlencode($categorySub_name));
+    header("Location: cateSubAdd.php?categorySub_name=" . urlencode($categorySub_name));
     exit();
 }
 ?>

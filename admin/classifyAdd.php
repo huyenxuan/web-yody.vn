@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $classify_name = $_POST['classify_name'];
     $insert_classify = $classify->insert_classify($category_id, $categorySub_id, $classify_name);
     // Chuyển hướng người dùng đến trang cateAdd.php
-    header("Location: classifyAdd.php?category_name=" . urlencode($result['category_name']) . "&classify_name=" . urlencode($classify_name));
+    header("Location: classifyAdd.php?classify_name=" . urlencode($classify_name));
     exit();
 }
 ?>
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Thêm loại sản phẩm</h2>
     <form action="" method="POST">
         <label for="">Danh mục sản phẩm <span style="color:red">*</span></label><br>
-        <select name="category_id" id="">
+        <select name="category_id" id="category_id">
             <option value="">--- Danh mục cha ---</option>
             <?php
             $show_category = $classify->show_category();
@@ -55,23 +55,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
         </select>
-        <select name="categorySub_id" id="">
+        <select name="categorySub_id" id="categorySub_id">
             <option value="">--- Danh mục con ---</option>
-            <?php
-            $show_categorySub = $classify->show_categorySub();
-            if ($show_categorySub) {
-                while ($resultSub = $show_categorySub->fetch_assoc()) {
-            ?>
-                    <option value="<?php echo $resultSub['categorySub_id'] ?>">
-                        <?php echo $resultSub['categorySub_name'] ?>
-                    </option>
-            <?php
-                }
-            }
-            ?>
         </select><br>
         <label for="">Tên loại sản phẩm <span style="color:red">*</span></label><br>
         <input required type="text" name="classify_name" placeholder="Nhập tên loại sản phẩm">
         <button>Thêm</button>
     </form>
 </div>
+<script>
+    $(document).ready(function() {
+        $("#category_id").change(function() {
+            var cate = $(this).val();
+            $.get("productAddAjax.php", {
+                category_id: cate
+            }, function(data) {
+                $("#categorySub_id").html(data);
+            });
+        });
+    });
+</script>

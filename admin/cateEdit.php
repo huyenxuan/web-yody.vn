@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .erro h3 {
         color: red;
     }
-    input {
+    input, select {
         outline: none;
         height: 30px;
         width: 200px;

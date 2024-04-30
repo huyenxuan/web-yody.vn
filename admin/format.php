@@ -5,6 +5,11 @@ class Format
     {
         return date('F j, Y, g:i a', strtotime($date));
     }
+    public function formatMoney($money)
+    {
+        $formatted_price = number_format($money) . 'đ';
+        return $formatted_price;
+    }
     public function textShorten($text, $limit = 400)
     {
         $text = $text . "";
@@ -32,4 +37,3 @@ class Format
         return $title = ucfirst($title);
     }
 }
-?>

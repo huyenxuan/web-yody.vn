@@ -44,12 +44,5 @@ class categorySub
         header("Location:cateShow.php");
         return $result;
     }
-    public function delete_categorySub($categorySub_id)
-    {
-        $query = "DELETE FROM tbl_categorysub WHERE categorySub_id = '$categorySub_id'";
-        $result = $this->db->delete($query);
-        header("Location:categorySubShow.php");
-        return $result;
-    }
 }
 ?>
