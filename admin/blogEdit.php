@@ -1,13 +1,27 @@
 <?php
 include("view/header.php");
 include("view/sidebar.php");
-include("class/productClass.php");
+include("class/blogClass.php");
 
-$product = new product();
+$blog = new blog;
+$blog_id = $_GET['blog_id'];
+$get_blog = $blog->get_blog($blog_id);
+
+if ($get_blog) {
+    $result = $get_blog->fetch_assoc();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $insert_product = $product->insert_product($_POST, $_FILES);
+    $categoryBlog_id = $_POST['categoryBlog_id'];
+    $blog_name = $_POST['blog_name'];
+    $blog_img = $_FILES['blog_img']['name'];
+    $blog_content = $_POST['blog_content'];
+    move_uploaded_file($_FILES['blog_img']['tmp_name'], "uploads/" . $_FILES['blog_img']['name']);
+
+    $update_blog = $blog->update_blog($categoryBlog_id, $blog_name, $blog_img, $blog_content, $blog_id);
 }
 ?>
+
 <!-- main content -->
 <style>
     .main-content {
@@ -101,56 +115,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 </style>
 <div class="main-content">
-    <h2>Thêm sản phẩm</h2>
+    <h2>Sửa bài viết</h2>
     <form action="" method="POST" enctype="multipart/form-data">
-        <div class="product-name">
-            <label for="">Tên sản phẩm <span>*</span></label>
-            <input required type="text" name="product_name" placeholder="Nhập tên sản phẩm">
+        <div class="blog-name">
+            <label for="">Tên bài viết <span>*</span></label>
+            <input required type="text" name="blog_name" placeholder="Nhập tên tên bài viết" value="<?php echo $result['blog_name'] ?>">
         </div>
-        <div class="category">
-            <label for="">Danh mục sản phẩm <span style="margin-right: 55px">*</span></label>
-            <select name="category_id" id="category_id">
-                <option value="">--- Danh mục cha ---</option>
+        <div class="blog-category">
+            <label for="">Danh mục bài viết <span style="margin-right: 55px">*</span></label>
+            <select name="categoryBlog_id" id="categoryBlog_id">
+                <option value="">--- Danh mục bài viết ---</option>
                 <?php
-                $show_category = $product->show_category();
-                if ($show_category) {
-                    while ($result = $show_category->fetch_assoc()) {
+                $show_categorySub = $blog->show_categorySub();
+                if ($show_categorySub) {
+                    while ($resultSub = $show_categorySub->fetch_assoc()) {
                 ?>
-                        <option value="<?php echo $result['category_id'] ?>">
-                            <?php echo $result['category_name'] ?>
+                        <option <?php if ($result['categoryBlog_id'] == $resultSub['categorySub_id']) {
+                            echo 'selected';
+                        } ?> value="<?php echo $resultSub['categorySub_id'] ?>">
+                            <?php echo $resultSub['categorySub_name'] ?>
                         </option>
                 <?php
                     }
                 }
                 ?>
             </select>
-            <select name="categorySub_id" id="categorySub_id">
-                <option value="">--- Danh mục con ---</option>
-            </select>
-        </div>
-        <div class="classify">
-            <label for="">Loại sản phẩm <span style="margin-right: 55px">*</span></label>
-            <select name="classify_id" id="classify_id">
-                <option value="">--- Loại sản phẩm ---</option>
-            </select>
-        </div>
-        <div class="price">
-            <label for="">Giá sản phẩm <span>*</span></label>
-            <input required type="text" name="price_old" placeholder="Giá sản phẩm">
-            <input type="text" name="price_sale" placeholder="Giá khuyến mại">
         </div>
         <div class="describe">
-            <label for="">Mô tả sản phẩm <span>*</span></label>
-            <textarea name="product_desc" id="editor" placeholder="Mô tả sản phẩm"></textarea>
+            <label for="">Viết bài blog <span>*</span></label>
+            <textarea name="blog_content" id="editor" placeholder="Viết bài blog..."><?php echo $result['blog_content'] ?></textarea>
         </div>
-        <h3>Ảnh sản phẩm</h3>
+        <h3>Ảnh đại diện bài viết</h3>
         <div class="image">
             <div class="label">
-                <label for="">Ảnh đại diện sản phẩm <span style="margin-right: 25px">*</span></label>
-                <label for="" style="margin-left: 10px;">Ảnh mô tả <span style="color: red">*</span></label>
+                <label for="">Ảnh đại diện sản phẩm</label>
             </div>
-            <input type="file" name="product_img" style="margin-right: 10px">
-            <input type="file" name="product_imgList[]" multiple>
+            <input type="file" name="blog_img">
         </div>
         <button>Thêm</button>
     </form>
@@ -336,27 +336,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'PasteFromOfficeEnhanced',
             'CaseChange'
         ]
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $("#category_id").change(function() {
-            var cate = $(this).val();
-            $.get("productAddAjax.php", {
-                category_id: cate
-            }, function(data) {
-                $("#categorySub_id").html(data);
-            });
-        });
-
-        $("#categorySub_id").change(function() {
-            var cateSub = $(this).val();
-            $.get("productAddAjax.php", {
-                categorySub_id: cateSub
-            }, function(data) {
-                $("#classify_id").html(data);
-            });
-        });
     });
 </script>

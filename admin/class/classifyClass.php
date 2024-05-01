@@ -14,6 +14,7 @@ class classify
     {
         $query = "INSERT INTO tbl_classify (category_id, categorySub_id, classify_name) VALUES ('$category_id', '$categorySub_id', '$classify_name')";
         $result = $this->db->insert($query);
+        header("Location: classifyAdd.php?classifyName=" . urldecode($classify_name));
         return $result;
     }
     public function show_category()

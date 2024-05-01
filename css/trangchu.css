@@ -359,7 +359,7 @@ button {
     color: #fcaf17;
 }
 .product-info .product-price {
-    display: block;
+    display: flex !important;
     font-size: 16px;
     font-family: var(--primary-font);
     margin-bottom: 7px;
@@ -370,6 +370,9 @@ button {
 }
 .product-option .product-option-ctn {
     display: flex;
+}
+.none {
+    display: none;
 }
 .product-option .color {
     margin: 0 10px 5px 0;

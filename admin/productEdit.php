@@ -3,11 +3,31 @@ include("view/header.php");
 include("view/sidebar.php");
 include("class/productClass.php");
 
-$product = new product();
+$product = new product;
+$product_id = $_GET['product_id'];
+$get_product = $product->get_product($product_id);
+
+if ($get_product) {
+    $resultProd = $get_product->fetch_assoc();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $insert_product = $product->insert_product($_POST, $_FILES);
+    $category_id = $_POST['category_id'];
+    $categorySub_id = $_POST['categorySub_id'];
+    $classify_id = $_POST['classify_id'];
+    $product_name = $_POST['product_name'];
+    $price_old = $_POST['price_old'];
+    $price_sale = $_POST['price_sale'];
+    $product_desc = $_POST['product_desc'];
+    $product_img = $_FILES['product_img']['name'];
+    $filename = $_FILES['product_imgList']['name'];
+    $filetmp = $_FILES['product_imgList']['tmp_name'];
+    $update_product = $product->update_product($category_id, $categorySub_id, $classify_id, $product_name, $price_old, $price_sale, $product_desc, $product_img, $filename, $filetmp, $product_id);
+    header("Location: productShow.php");
+    exit();
 }
 ?>
+
 <!-- main content -->
 <style>
     .main-content {
@@ -56,8 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border-radius: 5px;
         border: 1px solid #333;
         box-sizing: unset;
+        cursor: pointer;
     }
-
+    button:hover {
+        background-color: gray;
+    }
     label,
     .label {
         display: flex;
@@ -100,24 +123,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         display: none;
     }
 </style>
+
 <div class="main-content">
-    <h2>Thêm sản phẩm</h2>
+    <h2>Sửa sản phẩm</h2>
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="product-name">
-            <label for="">Tên sản phẩm <span>*</span></label>
-            <input required type="text" name="product_name" placeholder="Nhập tên sản phẩm">
+            <label>Tên sản phẩm</label>
+            <input required type="text" name="product_name" value="<?php echo $resultProd['product_name'] ?>">
         </div>
         <div class="category">
-            <label for="">Danh mục sản phẩm <span style="margin-right: 55px">*</span></label>
+            <label>Danh mục sản phẩm</label>
             <select name="category_id" id="category_id">
-                <option value="">--- Danh mục cha ---</option>
+                <option value="#">--- Chọn danh mục ---</option>
                 <?php
                 $show_category = $product->show_category();
                 if ($show_category) {
-                    while ($result = $show_category->fetch_assoc()) {
+                    while ($resultCate = $show_category->fetch_assoc()) {
                 ?>
-                        <option value="<?php echo $result['category_id'] ?>">
-                            <?php echo $result['category_name'] ?>
+                        <option <?php if ($resultProd['category_id'] == $resultCate['category_id']) {
+                                    echo 'selected';
+                                } ?> value="<?php echo $resultCate['category_id'] ?>">
+                            <?php echo $resultCate['category_name'] ?>
                         </option>
                 <?php
                     }
@@ -126,22 +152,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
             <select name="categorySub_id" id="categorySub_id">
                 <option value="">--- Danh mục con ---</option>
-            </select>
+                <?php
+                $show_categorySub = $product->show_categorySub();
+                if ($show_categorySub) {
+                    while ($resultSub = $show_categorySub->fetch_assoc()) {
+                ?>
+                        <option <?php if ($resultProd['categorySub_id'] == $resultSub['categorySub_id']) {
+                                    echo 'selected';
+                                } ?> value="<?php echo $resultSub['categorySub_id'] ?>">
+                            <?php echo $resultSub['categorySub_name'] ?>
+                        </option>
+                <?php
+                    }
+                }
+                ?>
+            </select><br>
         </div>
         <div class="classify">
             <label for="">Loại sản phẩm <span style="margin-right: 55px">*</span></label>
-            <select name="classify_id" id="classify_id">
+            <select name="classify_id" id="classify_id" required>
                 <option value="">--- Loại sản phẩm ---</option>
             </select>
         </div>
         <div class="price">
             <label for="">Giá sản phẩm <span>*</span></label>
-            <input required type="text" name="price_old" placeholder="Giá sản phẩm">
-            <input type="text" name="price_sale" placeholder="Giá khuyến mại">
+            <input required type="text" name="price_old" placeholder="Giá sản phẩm" value="<?php echo $resultProd['price_old'] ?>">
+            <input type="text" name="price_sale" placeholder="Giá khuyến mại" value="<?php echo $resultProd['price_sale'] ?>">
         </div>
         <div class="describe">
             <label for="">Mô tả sản phẩm <span>*</span></label>
-            <textarea name="product_desc" id="editor" placeholder="Mô tả sản phẩm"></textarea>
+            <textarea name="product_desc" id="editor" placeholder="Mô tả sản phẩm"><?php echo $resultProd['product_desc'] ?></textarea>
         </div>
         <h3>Ảnh sản phẩm</h3>
         <div class="image">
@@ -149,7 +189,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="">Ảnh đại diện sản phẩm <span style="margin-right: 25px">*</span></label>
                 <label for="" style="margin-left: 10px;">Ảnh mô tả <span style="color: red">*</span></label>
             </div>
-            <input type="file" name="product_img" style="margin-right: 10px">
+            <img src="uploads/<?php echo $resultProd['product_img'] ?>" alt="Product Image" style="margin-right: 10px; width: 50px; height: auto;"><br>
+            <input type="file" name="product_img">
             <input type="file" name="product_imgList[]" multiple>
         </div>
         <button>Thêm</button>
@@ -341,15 +382,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
     $(document).ready(function() {
-        $("#category_id").change(function() {
-            var cate = $(this).val();
-            $.get("productAddAjax.php", {
-                category_id: cate
-            }, function(data) {
-                $("#categorySub_id").html(data);
-            });
-        });
-
         $("#categorySub_id").change(function() {
             var cateSub = $(this).val();
             $.get("productAddAjax.php", {

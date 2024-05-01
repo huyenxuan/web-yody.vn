@@ -7,7 +7,6 @@
     <title>YODY - Look Good - Feel Good</title>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/trangchu.css">
 </head>
 <style>
     /* back top */

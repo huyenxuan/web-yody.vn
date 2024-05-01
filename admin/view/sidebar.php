@@ -31,8 +31,8 @@
             <div class="sidebar-sub news">
                 <h3>Tin tức</h3>
                 <ul>
-                    <li><a href="">Thêm tin tức</a></li>
-                    <li><a href="">Danh sách tin tức</a></li>
+                    <li><a href="blogAdd.php">Thêm tin tức</a></li>
+                    <li><a href="blogShow.php">Danh sách tin tức</a></li>
                 </ul>
             </div>
             <div class="sidebar-sub statistical">

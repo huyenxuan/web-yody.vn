@@ -20,6 +20,7 @@ class product
         $price_sale = $_POST['price_sale'];
         $product_desc = $_POST['product_desc'];
         $product_img = $_FILES['product_img']['name'];
+        move_uploaded_file($_FILES['product_img']['tmp_name'], "uploads/" . $_FILES['product_img']['name']);
 
         $query = "INSERT INTO tbl_product (
             product_name, 
@@ -45,8 +46,10 @@ class product
             $result = $this->db->select($query)->fetch_assoc();
             $product_id = $result["product_id"];
             $filename = $_FILES['product_imgList']['name'];
+            $filetmp = $_FILES['product_imgList']['tmp_name'];
 
             foreach ($filename as $key => $value) {
+                move_uploaded_file($filetmp[$key], "uploads/" . $value);
                 $query = "INSERT INTO tbl_product_imgList (product_id, product_imgList) VALUES ('$product_id', '$value')";
                 $result = $this->db->select($query);
             }
@@ -72,6 +75,17 @@ class product
         $result = $this->db->select($query);
         return $result;
     }
+    public function show_product()
+    {
+        $query = "SELECT prod.*, cat.category_name, sub.categorySub_name, cla.classify_name
+            FROM tbl_product AS prod
+            LEFT JOIN tbl_category AS cat ON prod.category_id = cat.category_id
+            LEFT JOIN tbl_categorysub AS sub ON prod.categorySub_id = sub.categorySub_id
+            LEFT JOIN tbl_classify AS cla ON prod.classify_id = cla.classify_id
+            ORDER BY prod.product_id ASC";
+        $result = $this->db->select($query);
+        return $result;
+    }
     public function show_categorySub_ajax($category_id)
     {
         $query = "SELECT * FROM tbl_categorysub WHERE category_id = '$category_id'";
@@ -84,22 +98,36 @@ class product
         $result = $this->db->select($query);
         return $result;
     }
-
-    
-    
-
-    public function update_classify($category_id, $categorySub_id, $classify_name, $classify_id)
+    public function get_product($product_id)
     {
-        $query = "UPDATE tbl_classify SET classify_name = '$classify_name', category_id = '$category_id', categorySub_id = '$categorySub_id' WHERE classify_id = '$classify_id'";
-        $result = $this->db->update($query);
-        header("Location:classifyShow.php");
+        $query = "SELECT * FROM tbl_product WHERE product_id = '$product_id'";
+        $result = $this->db->select($query);
         return $result;
     }
-    public function delete_classify($classify_id)
+    public function update_product($category_id, $categorySub_id, $classify_id, $product_name, $price_old, $price_sale, $product_desc, $product_img, $filename, $filetmp, $product_id)
     {
-        $query = "DELETE FROM tbl_classify WHERE classify_id = '$classify_id'";
+        $query = "UPDATE tbl_product SET product_name = '$product_name', category_id = '$category_id', categorySub_id = '$categorySub_id', classify_id = '$classify_id', price_old = '$price_old', price_sale = '$price_sale', product_desc = '$product_desc', product_img = '$product_img' WHERE product_id = '$product_id'";
+        $result = $this->db->update($query);
+        if ($result) {
+            $query = "SELECT * FROM tbl_product ORDER BY product_id DESC LIMIT 1";
+            $result = $this->db->select($query)->fetch_assoc();
+            $product_id = $result["product_id"];
+
+            foreach ($filename as $key => $value) {
+                move_uploaded_file($filetmp[$key], "uploads/" . $value);
+                $query = "UPDATE tbl_product_imgList SET product_imgList = '$value' WHERE product_id = '$product_id'";
+                $result = $this->db->select($query);
+            }
+        }
+        header("Location:productShow.php");
+        return $result;
+    }
+
+    public function delete_product($product_id)
+    {
+        $query = "DELETE FROM tbl_product WHERE product_id = '$product_id'";
         $result = $this->db->delete($query);
-        header("Location:classifyShow.php");
+        header("Location:productShow.php");
         return $result;
     }
 }

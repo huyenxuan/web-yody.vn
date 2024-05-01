@@ -1,5 +1,5 @@
 <?php
-include("./class/productClass.php");
+include("class/productClass.php");
 $product = new product;
 $category_id = $_GET['category_id'];
 $categorySub_id = $_GET['categorySub_id'];

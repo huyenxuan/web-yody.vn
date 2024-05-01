@@ -10,14 +10,16 @@ class Format
         $formatted_price = number_format($money) . 'đ';
         return $formatted_price;
     }
-    public function textShorten($text, $limit = 400)
+    public function textShorten($text, $limit)
     {
-        $text = $text . "";
-        $text = substr($text, 0, $limit);
-        $text = substr($text, 0, strrpos($text, ''));
-        $text = $text . ".....";
+        if (strlen($text) > $limit) {
+            $text = substr($text, 0, $limit);
+            $text = substr($text, 0, strrpos($text, ' ')); 
+            $text = $text . ".....";
+        }
         return $text;
     }
+
     public function validation($data)
     {
         $data = trim($data);
