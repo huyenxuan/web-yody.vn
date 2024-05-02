@@ -77,11 +77,12 @@ class product
     }
     public function show_product()
     {
-        $query = "SELECT prod.*, cat.category_name, sub.categorySub_name, cla.classify_name
+        $query = "SELECT prod.*, cat.category_name, sub.categorySub_name, cla.classify_name, imgList.product_imgList
             FROM tbl_product AS prod
             LEFT JOIN tbl_category AS cat ON prod.category_id = cat.category_id
             LEFT JOIN tbl_categorysub AS sub ON prod.categorySub_id = sub.categorySub_id
             LEFT JOIN tbl_classify AS cla ON prod.classify_id = cla.classify_id
+            LEFT JOIN tbl_product_imgList AS imgList ON prod.product_id = imgList.product_id
             ORDER BY prod.product_id ASC";
         $result = $this->db->select($query);
         return $result;

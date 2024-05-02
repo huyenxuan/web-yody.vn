@@ -90,7 +90,7 @@
                                                 <a class="dad-list" href="index.php" title="SALE OFF 50%">sale off 50%</a>
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="category.php" title="NỮ">nữ</a>
+                                                <a class="dad-list" href="category.php?category_id=<?php echo 2 ?>" title="NỮ">nữ</a>
                                                 <!-- mega menu -->
                                                 <ul class="mega-menu">
                                                     <li class="parrent-mega">
@@ -261,7 +261,7 @@
                                                 <!-- <div class="wrapper"></div> -->
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="category.php" title="NAM">nam</a>
+                                                <a class="dad-list" href="category.php?category_id=<?php echo 3 ?>" title="NAM">nam</a>
                                                 <!-- mega menu -->
                                                 <ul class="mega-menu">
                                                     <li class="parrent-mega">
@@ -421,7 +421,7 @@
                                                 </ul>
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="category.php" title="TRẺ EM">trẻ em</a>
+                                                <a class="dad-list" href="category.php?category_id=<?php echo 4 ?>" title="TRẺ EM">trẻ em</a>
                                                 <!-- menu mega -->
                                                 <ul class="mega-menu mega-menu-type2">
                                                     <li class="mega-menu-img">

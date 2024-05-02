@@ -56,7 +56,7 @@ class product
         return $result;
     }
     public function show_productAccessory() {
-        $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%phụ kiện%' LIMIT 12";
+        $query = "SELECT * FROM tbl_product WHERE categorySub_id IN (9, 16, 23) LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }

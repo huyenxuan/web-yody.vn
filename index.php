@@ -18,10 +18,6 @@ $show_productAccessory = $product->show_productAccessory();
 ?>
 <link rel="stylesheet" href="css/trangchu.css">
 <style>
-    .none {
-        /* display: none; */
-    }
-
     .del {
         text-decoration: line-through;
         color: gray;
@@ -951,24 +947,27 @@ $show_productAccessory = $product->show_productAccessory();
                             <div class="row row-newproduct">
                                 <?php
                                 if ($show_productNew) {
-                                    while ($result = $show_productNew->fetch_assoc()) {
+                                    while ($resultNew = $show_productNew->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
-                                                        <img src="./admin/uploads/<?php echo $result['product_img'] ?>" alt="">
+                                                    <a href="detail.php?product_id=<?php echo $resultNew['product_id'] ?>" class="image">
+                                                        <img src="./admin/uploads/<?php echo $resultNew['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $result['product_name'] ?></a>
+                                                    <h3 class="product-name">
+                                                        <a href="detail.php?product_id=<?php echo $resultNew['product_id'] ?>">
+                                                            <?php echo $resultNew['product_name'] ?>
+                                                        </a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
-                                                        <?php if ($result['price_sale'] && $result['price_sale'] != 0) : ?>
-                                                            <div class="price-sale" style="margin-right: 10px"><?php echo $format->formatMoney($result['price_sale']) ?></div>
-                                                            <div class="price-old del" style="text-decoration: line-through;"><?php echo $format->formatMoney($result['price_old']) ?></div>
+                                                        <?php if ($resultNew['price_sale'] && $resultNew['price_sale'] != 0) : ?>
+                                                            <div class="price-sale" style="margin-right: 10px"><?php echo $format->formatMoney($resultNew['price_sale']) ?></div>
+                                                            <div class="price-old del" style="text-decoration: line-through;"><?php echo $format->formatMoney($resultNew['price_old']) ?></div>
                                                         <?php else : ?>
-                                                            <div class="price-old"><?php echo $format->formatMoney($result['price_old']) ?></div>
+                                                            <div class="price-old"><?php echo $format->formatMoney($resultNew['price_old']) ?></div>
                                                         <?php endif; ?>
                                                     </div>
                                                     <div class="product-option">
@@ -1025,19 +1024,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product">
                         <div class="">
                             <div class="row row-bestseller">
-                            <?php
+                                <?php
                                 if ($show_productBestSaler) {
                                     while ($resultBestSaler = $show_productBestSaler->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultBestSaler['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultBestSaler['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultBestSaler['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultBestSaler['product_id'] ?>"><?php echo $resultBestSaler['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultBestSaler['price_sale'] && $resultBestSaler['price_sale'] != 0) : ?>
@@ -1101,19 +1100,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product bestseller">
                         <div class="">
                             <div class="row row-polo">
-                            <?php
+                                <?php
                                 if ($show_productPolo) {
                                     while ($resultPolo = $show_productPolo->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultPolo['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultPolo['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultPolo['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultPolo['product_id'] ?>"><?php echo $resultPolo['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultPolo['price_sale'] && $resultPolo['price_sale'] != 0) : ?>
@@ -1177,19 +1176,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product">
                         <div class="">
                             <div class="row row-sport">
-                            <?php
+                                <?php
                                 if ($show_productSport) {
                                     while ($resultSport = $show_productSport->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultSport['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultSport['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultSport['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultSport['product_id'] ?>"><?php echo $resultSport['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultSport['price_sale'] && $resultSport['price_sale'] != 0) : ?>
@@ -1253,19 +1252,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product">
                         <div class="">
                             <div class="row row-tshirt">
-                            <?php
+                                <?php
                                 if ($show_productTShirt) {
                                     while ($resultTShirt = $show_productTShirt->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultTShirt['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultTShirt['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultTShirt['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultTShirt['product_id'] ?>"><?php echo $resultTShirt['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultTShirt['price_sale'] && $resultTShirt['price_sale'] != 0) : ?>
@@ -1329,19 +1328,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product">
                         <div class="">
                             <div class="row row-jeans">
-                            <?php
+                                <?php
                                 if ($show_productJeans) {
                                     while ($resultJeans = $show_productJeans->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultJeans['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultJeans['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultJeans['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultJeans['product_id'] ?>"><?php echo $resultJeans['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultJeans['price_sale'] && $resultJeans['price_sale'] != 0) : ?>
@@ -1405,19 +1404,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product">
                         <div class="">
                             <div class="row row-office">
-                            <?php
+                                <?php
                                 if ($show_productOffice) {
                                     while ($resultOffice = $show_productOffice->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultOffice['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultOffice['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultOffice['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultOffice['product_id'] ?>"><?php echo $resultOffice['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultOffice['price_sale'] && $resultOffice['price_sale'] != 0) : ?>
@@ -1481,19 +1480,19 @@ $show_productAccessory = $product->show_productAccessory();
                     <div class="list-product">
                         <div class="">
                             <div class="row row-accessory">
-                            <?php
+                                <?php
                                 if ($show_productAccessory) {
                                     while ($resultAccessory = $show_productAccessory->fetch_assoc()) {
                                 ?>
                                         <div class="product-ctn">
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
-                                                    <a href="" class="image">
+                                                    <a href="detail.php?product_id=<?php echo $resultAccessory['product_id'] ?>" class="image">
                                                         <img src="./admin/uploads/<?php echo $resultAccessory['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href=""><?php echo $resultAccessory['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultAccessory['product_id'] ?>"><?php echo $resultAccessory['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultAccessory['price_sale'] && $resultAccessory['price_sale'] != 0) : ?>
