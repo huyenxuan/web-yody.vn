@@ -10,7 +10,17 @@ $category_id = $_GET['category_id'];
 $show_product = $product->show_productCate($category_id);
 ?>
 <link rel="stylesheet" href="./css/category.css">
-
+<style>
+    .list-product .row {
+        justify-content: unset;
+    }
+    .product-ctn {
+        margin-right: 34px;
+    }
+    .product-ctn:nth-child(5n) {
+        margin-right: 0;
+    }
+</style>
 <!-- category -->
 <div class="wrapper-ctn" style="margin-top: 125px;">
     <div class="row">
@@ -170,7 +180,7 @@ $show_product = $product->show_productCate($category_id);
         </div>
     </div>
     </main>
-
-    <?php
-    include("./front-end/fe_footer.php");
-    ?>
+</div>
+<?php
+include("./front-end/fe_footer.php");
+?>

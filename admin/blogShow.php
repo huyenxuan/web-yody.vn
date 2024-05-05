@@ -2,8 +2,10 @@
 include("view/header.php");
 include("view/sidebar.php");
 include("class/blogClass.php");
+include("format.php");
 
 $blog = new blog;
+$format = new format;
 $show_blog = $blog->show_blog();
 ?>
 <!-- main content -->
@@ -30,11 +32,22 @@ $show_blog = $blog->show_blog();
     form {
         padding-bottom: 30px;
     }
-    /* img {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    } */
+
+    .blog_content img:first-child {
+        width: 50%;
+        height: auto;
+    }
+
+    .blog_content p {
+        margin: 0;
+    }
+
+    .blog_img img {
+        width: 100%;
+        padding: 0 5px;
+        margin: auto;
+        box-sizing: border-box;
+    }
 </style>
 <div class="main-content" style="height: 100%;">
     <h2>Danh sách bài viết</h2>
@@ -42,12 +55,11 @@ $show_blog = $blog->show_blog();
         <table>
             <tr>
                 <th>STT</th>
-                <th>ID</th>
                 <th>Tên danh mục</th>
                 <th>Tên bài viết</th>
-                <th>Nội dung</th>
+                <th style="width: 300px">Nội dung</th>
                 <th>Ảnh đại diện</th>
-                <th>Hành động</th>
+                <th style="width: 70px">Hành động</th>
             </tr>
             <?php
             if ($show_blog) {
@@ -57,11 +69,10 @@ $show_blog = $blog->show_blog();
             ?>
                     <tr>
                         <td><?php echo $i ?></td>
-                        <td><?php echo $result['blog_id'] ?></td>
                         <td><?php echo $result['categorySub_name'] ?></td>
                         <td><?php echo $result['blog_name'] ?></td>
-                        <td><?php echo $result['blog_content'] ?></td>
-                        <td>
+                        <td class="blog_content"><?php echo $format->textShorten($result['blog_content'], 400) ?></td>
+                        <td class="blog_img" style="width: 130px">
                             <img src="uploads/<?php echo $result['blog_img'] ?>" alt="" width="35px">
                         </td>
                         <td>

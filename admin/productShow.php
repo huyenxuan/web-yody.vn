@@ -39,7 +39,6 @@ $show_product = $product->show_product();
         <table>
             <tr>
                 <th>STT</th>
-                <th>Loại sản phẩm</th>
                 <th>Tên sản phẩm</th>
                 <th>Giá sản phẩm</th>
                 <th>Giá sale</th>
@@ -55,7 +54,6 @@ $show_product = $product->show_product();
             ?>
                     <tr>
                         <td><?php echo $i ?></td>
-                        <td><?php echo $result['classify_name'] ?></td>
                         <td><?php echo $result['product_name'] ?></td>
                         <td><?php echo $format->formatMoney($result['price_old']) ?></td>
                         <td style="color:red"><?php echo $format->formatMoney($result['price_sale']) ?></td>

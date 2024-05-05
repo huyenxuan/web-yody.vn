@@ -44,9 +44,10 @@
                                 </div>
                                 <div class="search-ctn">
                                     <div class="search">
-                                        <form action="form-search">
-                                            <input type="text" placeholder="Tìm kiếm" title="Vui lòng điền vào trường này">
-                                            <button type="submit">
+                                        <form action="http://localhost/project/search.php" class="form-search" method="GET">
+                                            <input required name="keyword" type="text" placeholder="Tìm kiếm" title="Vui lòng điền vào trường này"
+                                            value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
+                                            <button>
                                                 <img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-search.svg" alt="">
                                             </button>
                                         </form>

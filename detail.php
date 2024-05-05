@@ -44,10 +44,7 @@ $show_imgList = $product->show_imgList($product_id);
                 </div>
 
                 <div class="noiBat">
-                    <p class="hd">
-                        Đặc tính nổi bật
-                    </p>
-                    <div><?php echo $result['product_desc'] ?></div>
+                    <div style="margin-top: 10px"><?php echo $result['product_desc'] ?></div>
                 </div>
 
                 <div class="box-danhGia">

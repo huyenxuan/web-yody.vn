@@ -328,25 +328,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]
     });
 </script>
-
-<script>
-    $(document).ready(function() {
-        $("#category_id").change(function() {
-            var cate = $(this).val();
-            $.get("productAddAjax.php", {
-                category_id: cate
-            }, function(data) {
-                $("#categorySub_id").html(data);
-            });
-        });
-
-        $("#categorySub_id").change(function() {
-            var cateSub = $(this).val();
-            $.get("productAddAjax.php", {
-                categorySub_id: cateSub
-            }, function(data) {
-                $("#classify_id").html(data);
-            });
-        });
-    });
-</script>

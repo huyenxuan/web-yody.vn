@@ -11,7 +11,8 @@ class product
         $this->db = new Database;
     }
 
-    public function show_productFlashSale() {
+    public function show_productFlashSale()
+    {
         // $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%jeans%' LIMIT 12";
         // $result = $this->db->select($query);
         // return $result;
@@ -22,7 +23,8 @@ class product
         $result = $this->db->select($query);
         return $result;
     }
-    public function show_productBestSaler() {
+    public function show_productBestSaler()
+    {
         $query = "SELECT * FROM tbl_product ORDER BY RAND() LIMIT 12";
         $result = $this->db->select($query);
         return $result;
@@ -45,18 +47,27 @@ class product
         $result = $this->db->select($query);
         return $result;
     }
-    public function show_productJeans() {
+    public function show_productJeans()
+    {
         $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%jeans%' LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
-    public function show_productOffice() {
+    public function show_productOffice()
+    {
         $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%sơ mi%' OR LOWER(product_name) LIKE '%quần âu%' LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
-    public function show_productAccessory() {
+    public function show_productAccessory()
+    {
         $query = "SELECT * FROM tbl_product WHERE categorySub_id IN (9, 16, 23) LIMIT 12";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function search_product($search)
+    {
+        $query = "SELECT * FROM tbl_product WHERE product_name LIKE '%$search%' OR product_id = '$search'";
         $result = $this->db->select($query);
         return $result;
     }
