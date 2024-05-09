@@ -54,7 +54,7 @@ $show_classify = $classify->show_classify();
                         <td>
                             <a href="classifyEdit.php?classify_id=<?php echo $result['classify_id'] ?>">Sửa</a>
                             <span>|</span>
-                            <a href="classifyDel.php?classify_id=<?php echo $result['classify_id'] ?>">Xóa</a>
+                            <a onclick="return confirm('Bạn có muốn xóa loại sản phẩm này không?')" href="classifyDel.php?classify_id=<?php echo $result['classify_id'] ?>">Xóa</a>
                         </td>
                     </tr>
                     <?php

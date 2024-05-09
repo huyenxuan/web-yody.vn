@@ -1,6 +1,6 @@
 <?php
 include("./front-end/fe_header.php");
-include("admin/class/showFrontEnd.php");
+// include("admin/class/showFrontEnd.php");
 include("admin/format.php");
 
 $format = new format;

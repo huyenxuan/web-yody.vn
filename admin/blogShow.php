@@ -78,7 +78,7 @@ $show_blog = $blog->show_blog();
                         <td>
                             <a href="blogEdit.php?blog_id=<?php echo $result['blog_id'] ?>">Sửa</a>
                             <span>|</span>
-                            <a href="blogDel.php?blog_id=<?php echo $result['blog_id'] ?>">Xóa</a>
+                            <a onclick="return confirm('Bạn có muốn xóa bài viết này không?')" href="blogDel.php?blog_id=<?php echo $result['blog_id'] ?>">Xóa</a>
                         </td>
                     </tr>
             <?php

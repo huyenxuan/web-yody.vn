@@ -2,6 +2,19 @@
 include("./front-end/fe_header.php");
 ?>
 <link rel="stylesheet" href="./css/account.css">
+<style>
+    .form-login {
+        position: relative;
+    }
+
+    .form-login i {
+        position: absolute;
+        display: block;
+        top: 100px;
+        right: 15px;
+        cursor: pointer;
+    }
+</style>
 <!-- register -->
 <div class="main-content">
     <div class="login-wrap" style="height: 580px;">
@@ -10,12 +23,25 @@ include("./front-end/fe_header.php");
         </div>
         <form action="" class="form-login">
             <input type="text" name="" id="email" placeholder="Email">
-            <input type="password" name="" id="password" placeholder="Mật khẩu">
+            <input type="password" name="" id="pass" placeholder="Mật khẩu">
+            <i id="togglePassword" class="fa-solid fa-eye"></i>
             <button type="submit">Đăng nhập</button>
         </form>
+        <script>
+            const pass = document.getElementById("pass");
+            const togglePassword = document.getElementById("togglePassword");
 
+            togglePassword.addEventListener('click', () => {
+                if (pass.getAttribute("type") === "password") {
+                    pass.setAttribute("type", "text");
+                    togglePassword.className = "fa-solid fa-eye-slash";
+                } else {
+                    pass.setAttribute("type", "password");
+                    togglePassword.className = "fa-solid fa-eye";
+                }
+            });
+        </script>
         <a href="" class="forgot-pass">Quên mật khẩu</a>
-
         <div class="social-login">
             <div class="txt">
                 Hoặc đăng nhập bằng

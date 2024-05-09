@@ -26,6 +26,12 @@
         height: 45px;
     }
 </style>
+<?php
+include("admin/class/showFrontEnd.php");
+
+$product = new product;
+
+?>
 
 <body>
     <main>
@@ -45,8 +51,7 @@
                                 <div class="search-ctn">
                                     <div class="search">
                                         <form action="http://localhost/project/search.php" class="form-search" method="GET">
-                                            <input required name="keyword" type="text" placeholder="Tìm kiếm" title="Vui lòng điền vào trường này"
-                                            value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
+                                            <input required name="keyword" type="text" placeholder="Tìm kiếm" title="Vui lòng điền vào trường này" value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
                                             <button>
                                                 <img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-search.svg" alt="">
                                             </button>
@@ -66,14 +71,14 @@
                                     </div>
                                     <div class="phone">
                                         <i class="fa-solid fa-phone" style="align-self: center;"></i>
-                                        <a href="">1800 2086</a>
+                                        <a href="tel: 18002086">1800 2086</a>
                                         <span class="free">free</span>
                                     </div>
                                     <span style="margin: 0 8px;"> - </span>
                                     <div class="call-order">
                                         <span style="margin-right: 3px;">Đặt hàng gọi</span>
                                         <i class="fa-solid fa-phone"></i>
-                                        <span style="cursor: pointer; margin-left: 3px;"><a href="">02499986999</a></span>
+                                        <span style="cursor: pointer; margin-left: 3px;"><a href="tel: 02499986999">02499986999</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -91,164 +96,194 @@
                                                 <a class="dad-list" href="index.php" title="SALE OFF 50%">sale off 50%</a>
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="category.php?category_id=<?php echo 2 ?>" title="NỮ">nữ</a>
+                                                <a class="dad-list" href="category.php?category_id=2" title="NỮ">nữ</a>
                                                 <!-- mega menu -->
                                                 <ul class="mega-menu">
                                                     <li class="parrent-mega">
                                                         <ul>
                                                             <li class="list-item1">
-                                                                <a class="title-m" href="" title="ÁO NỮ">áo nữ</a>
+                                                                <a class="title-m" href="categorySub.php?categorySub_id=1" title="ÁO NỮ">áo nữ</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO POLO">áo
-                                                                            polo</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO THUN">áo
-                                                                            thun</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO KHOÁC">áo
-                                                                            khoác</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO CHỐNG NẮNG">áo
-                                                                            chống
-                                                                            nắng</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO NỈ">áo nỉ</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO GIỮ NHIỆT">áo
-                                                                            giữ
-                                                                            nhiệt</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO LEN">áo len</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO SƠ MI">áo sơ
-                                                                            mi</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 1;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a class="title-m" href="" title="QUẦN NỮ">quần nữ</a>
+                                                                <a class="title-m" href="categorySub.php?categorySub_id=2" title="QUẦN NỮ">quần nữ</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN JEANS">quần
-                                                                            jeans</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN ÂU">quần
-                                                                            âu</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN KAKI">quần
-                                                                            kaki</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN SHORT">quần
-                                                                            short</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN NỈ">quần
-                                                                            nỉ</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 2;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="BỘ ĐỒ NỮ">bộ đồ nữ</a>
+                                                                <a href="categorySub.php?categorySub_id=3" class="title-m" title="BỘ ĐỒ NỮ">bộ đồ nữ</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="BỘ ĐỒ NỮ MẶC NHÀ">bộ đồ
-                                                                            nữ mặc nhà</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 3;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="NỔI BẬT" style="color: red !important;">nổi bật</a>
+                                                                <a href="categorySub.php?categorySub_id=4" class="title-m" title="NỔI BẬT" style="color: red !important;">nổi bật</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="HÀNG MỚI VỀ">hàng
-                                                                            mới
-                                                                            về</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="KHỬ MÙI VƯỢT TRỘI">khử
-                                                                            mùi vượt trội</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="THOÁNG MÁT TỐI ĐA">thoáng mát tối
-                                                                            đa</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="CHỐNG UV">chống
-                                                                            UV</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 4;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐỒ MẶC TRONG NỮ">đồ
+                                                                <a href="categorySub.php?categorySub_id=5" class="title-m" title="ĐỒ MẶC TRONG NỮ">đồ
                                                                     mặc
                                                                     trong nữ</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ĐỒ LÓT">đồ lót</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ÁO 2 DÂY - ÁO BA LỖ">áo
-                                                                            2 dây - áo ba lỗ</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 5;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐỒ THỂ THAO NỮ">đồ thể
+                                                                <a href="categorySub.php?categorySub_id=6" class="title-m" title="ĐỒ THỂ THAO NỮ">đồ thể
                                                                     thao nữ</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="BỘ THỂ THAO">bộ thể
-                                                                            thao</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ÁO THUN THỂ THAO">áo
-                                                                            thun thể thao</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ÁO POLO THỂ THAO">áo
-                                                                            polo thể thao</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="QUẦN THỂ THAO">quần
-                                                                            thể
-                                                                            thao</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 6;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="CHÂN VÁY NỮ">chân váy
-                                                                    nữ</a>
-                                                            </li>
-                                                            <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐẦM NỮ">đầm nữ</a>
-                                                            </li>
-                                                            <li class="list-item1">
-                                                                <a href="" class="title-m" title="PHỤ KIỆN NỮ">phụ kiện
+                                                                <a href="categorySub.php?categorySub_id=7" class="title-m" title="CHÂN VÁY NỮ">chân váy
                                                                     nữ</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="GIÀY">giày</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="TÚI XÁCH">túi
-                                                                            xách</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="PHỤ KIỆN KHÁC">phụ
-                                                                            kiện
-                                                                            khác</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 7;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="list-item1">
+                                                                <a href="categorySub.php?categorySub_id=8" class="title-m" title="ĐẦM NỮ">đầm nữ</a>
+                                                                <ul>
+                                                                    <?php
+                                                                    $categorySub_id = 8;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="list-item1">
+                                                                <a href="categorySub.php?categorySub_id=9" class="title-m" title="PHỤ KIỆN NỮ">phụ kiện
+                                                                    nữ</a>
+                                                                <ul>
+                                                                    <?php
+                                                                    $categorySub_id = 9;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -259,157 +294,157 @@
                                                         </a>
                                                     </li>
                                                 </ul>
-                                                <!-- <div class="wrapper"></div> -->
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="category.php?category_id=<?php echo 3 ?>" title="NAM">nam</a>
+                                                <a class="dad-list" href="category.php?category_id=3" title="NAM">nam</a>
                                                 <!-- mega menu -->
                                                 <ul class="mega-menu">
                                                     <li class="parrent-mega">
                                                         <ul>
                                                             <li class="list-item1">
-                                                                <a class="title-m" href="" title="ÁO NAM">áo nam</a>
+                                                                <a class="title-m" href="categorySub.php?categorySub_id=10" title="ÁO NAM">áo nam</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO POLO">áo
-                                                                            polo</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO THUN">áo
-                                                                            thun</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO KHOÁC">áo
-                                                                            khoác</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO CHỐNG NẮNG">áo
-                                                                            chống
-                                                                            nắng</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO NỈ">áo nỉ</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO SƠ MI">áo sơ
-                                                                            mi</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO GIỮ NHIỆT">áo
-                                                                            giữ
-                                                                            nhiệt</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 10;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a class="title-m" href="" title="QUẦN NAM">quần nam</a>
+                                                                <a class="title-m" href="categorySub.php?categorySub_id=11" title="QUẦN NAM">quần nam</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN ÂU">quần
-                                                                            âu</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN KAKI">quần
-                                                                            kaki</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN JEANS">quần
-                                                                            jeans</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN SHORT">quần
-                                                                            short</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN NỈ">quần
-                                                                            nỉ</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 11;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="BỘ ĐỒ NAM">bộ đồ
+                                                                <a href="categorySub.php?categorySub_id=12" class="title-m" title="BỘ ĐỒ NAM">bộ đồ
                                                                     nam</a>
                                                                 <ul>
-                                                                    <li></li>
+                                                                    <?php
+                                                                    $categorySub_id = 12;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="NỔI BẬT" style="color: red !important;">nổi bật</a>
+                                                                <a href="categorySub.php?categorySub_id=13" class="title-m" title="NỔI BẬT" style="color: red !important;">nổi bật</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="HÀNG MỚI VỀ">hàng
-                                                                            mới
-                                                                            về</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="KHỬ MÙI VƯỢT TRỘI">khử
-                                                                            mùi vượt trội</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="THOÁNG MÁT TỐI ĐA">thoáng mát tối
-                                                                            đa</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="CHỐNG UV">chống
-                                                                            UV</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 13;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐỒ THỂ THAO NAM">đồ
+                                                                <a href="categorySub.php?categorySub_id=14" class="title-m" title="ĐỒ THỂ THAO NAM">đồ
                                                                     thể
                                                                     thao nam</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="BỘ THỂ THAO">bộ thể
-                                                                            thao</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ÁO THUN THỂ THAO">áo
-                                                                            thun thể thao</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ÁO POLO THỂ THAO">áo
-                                                                            polo thể thao</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="QUẦN THỂ THAO">quần
-                                                                            thể
-                                                                            thao</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 14;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐỒ MẶC TRONG NAM">đồ
+                                                                <a href="categorySub.php?categorySub_id=15" class="title-m" title="ĐỒ MẶC TRONG NAM">đồ
                                                                     mặc
                                                                     trong nam</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="QUẦN LÓT">quần
-                                                                            lót</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="ÁO BA LỖ">áo ba
-                                                                            lỗ</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 15;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="PHỤ KIỆN NAM">phụ kiện
+                                                                <a href="categorySub.php?categorySub_id=16" class="title-m" title="PHỤ KIỆN NAM">phụ kiện
                                                                     nam</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="GIÀY">giày</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="THẮT LƯNG">thắt
-                                                                            lưng</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="PHỤ KIỆN KHÁC">phụ
-                                                                            kiện
-                                                                            khác</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 16;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -433,111 +468,148 @@
                                                     <li class="parrent-mega">
                                                         <ul>
                                                             <li class="list-item1">
-                                                                <a class="title-m" href="" title="ÁO TRẺ EM">áo trẻ
+                                                                <a class="title-m" href="categorySub.php?categorySub_id=17" title="ÁO TRẺ EM">áo trẻ
                                                                     em</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO POLO">áo
-                                                                            polo</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO THUN">áo
-                                                                            thun</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO KHOÁC">áo
-                                                                            khoác</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO NỈ">áo nỉ</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO GIỮ NHIỆT">áo
-                                                                            giữ
-                                                                            nhiệt</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="ÁO LEN">áo len</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 17;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a class="title-m" href="" title="QUẦN TRẺ EM">quần trẻ
+                                                                <a class="title-m" href="categorySub.php?categorySub_id=18" title="QUẦN TRẺ EM">quần trẻ
                                                                     em</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN JEANS">quần
-                                                                            jeans</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN KAKI">quần
-                                                                            kaki</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN SHORT">quần
-                                                                            short</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN NỈ">quần
-                                                                            nỉ</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a class="a3" href="" title="QUẦN LEGGING">quần
-                                                                            legging</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 18;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="BỘ ĐỒ TRẺ EM">bộ đồ
-                                                                    trẻ
-                                                                    em</a>
+                                                                <a href="categorySub.php?categorySub_id=19" class="title-m" title="BỘ ĐỒ TRẺ EM">bộ đồ trẻ em</a>
                                                                 <ul>
-                                                                    <li></li>
+                                                                    <?php
+                                                                    $categorySub_id = 19;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="NỔI BẬT" style="color: red !important;">nổi bật</a>
+                                                                <a href="categorySub.php?categorySub_id=20" class="title-m" title="NỔI BẬT" style="color: red !important;">nổi bật</a>
                                                                 <ul>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="HÀNG MỚI VỀ">hàng
-                                                                            mới
-                                                                            về</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="KHỬ MÙI VƯỢT TRỘI">khử
-                                                                            mùi vượt trội</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="THOÁNG MÁT TỐI ĐA">thoáng mát tối
-                                                                            đa</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="" class="a3" title="CHỐNG UV">chống
-                                                                            UV</a>
-                                                                    </li>
+                                                                    <?php
+                                                                    $categorySub_id = 20;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐỒ THỂ TRẺ EM">đồ thể
-                                                                    trẻ
-                                                                    em</a>
+                                                                <a href="categorySub.php?categorySub_id=21" class="title-m" title="ĐỒ THỂ TRẺ EM">đồ thể trẻ em</a>
                                                                 <ul>
-                                                                    <li></li>
+                                                                <?php
+                                                                    $categorySub_id = 21;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="CHÂN VÁY BÉ GÁI">chân
+                                                                <a href="categorySub.php?categorySub_id=22" class="title-m" title="CHÂN VÁY BÉ GÁI">chân
                                                                     váy
                                                                     bé gái</a>
                                                                 <ul>
-                                                                    <li></li>
+                                                                <?php
+                                                                    $categorySub_id = 22;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">
-                                                                <a href="" class="title-m" title="ĐẦM BÉ GÁI">đầm bé
+                                                                <a href="categorySub.php?categorySub_id=23" class="title-m" title="ĐẦM BÉ GÁI">đầm bé
                                                                     gái</a>
                                                                 <ul>
-                                                                    <li></li>
+                                                                <?php
+                                                                    $categorySub_id = 23;
+                                                                    $show_product = $product->show_classify($categorySub_id);
+                                                                    if ($show_product) {
+                                                                        while ($resultClassify = $show_product->fetch_assoc()) {
+                                                                    ?>
+                                                                            <li>
+                                                                                <a href="classify.php?classify_id=<?php echo $resultClassify['classify_id'] ?>" class="a3" title="<?php echo $resultClassify['classify_name'] ?>">
+                                                                                    <?php echo $resultClassify['classify_name'] ?>
+                                                                                </a>
+                                                                            </li>
+                                                                    <?php
+                                                                        }
+                                                                    }
+                                                                    ?>
                                                                 </ul>
                                                             </li>
                                                             <li class="list-item1">

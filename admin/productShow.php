@@ -32,9 +32,21 @@ $show_product = $product->show_product();
     form {
         padding-bottom: 30px;
     }
+
+    a {
+        text-decoration: none;
+    }
+
+    .action a,
+    .action span {
+        text-decoration: none;
+        font-size: 15px;
+        cursor: pointer;
+        color: black;
+    }
 </style>
 <div class="main-content" style="height: 100%;">
-    <h2>Danh sách phân loại sản phẩm</h2>
+    <h2>Danh sách sản phẩm</h2>
     <form action="" method="POST">
         <table>
             <tr>
@@ -56,15 +68,20 @@ $show_product = $product->show_product();
                         <td><?php echo $i ?></td>
                         <td><?php echo $result['product_name'] ?></td>
                         <td><?php echo $format->formatMoney($result['price_old']) ?></td>
-                        <td style="color:red"><?php echo $format->formatMoney($result['price_sale']) ?></td>
+                        <?php
+                        if ($result['price_sale'] && $result['price_sale'] != 0) : ?>
+                            <td style="color:red"><?php echo $format->formatMoney($result['price_sale']) ?></td>
+                        <?php else : ?>
+                            <td style="color:red"></td>
+                        <?php endif; ?>
                         <td><?php echo $format->textShorten($result['product_desc'], 20) ?></td>
                         <td>
                             <img src="uploads/<?php echo $result['product_img'] ?>" alt="" width="35px">
                         </td>
-                        <td>
+                        <td class="action">
                             <a href="productEdit.php?product_id=<?php echo $result['product_id'] ?>">Sửa</a>
                             <span>|</span>
-                            <a href="productDel.php?product_id=<?php echo $result['product_id'] ?>">Xóa</a>
+                            <a onclick="return confirm('Bạn có muốn xóa sản phẩm này không?')" href="productDel.php?product_id=<?php echo $result['product_id'] ?>">Xóa</a>
                         </td>
                     </tr>
             <?php

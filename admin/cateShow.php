@@ -55,7 +55,7 @@ $show_categorySub = $categorySub->show_categorySub();
                         <td>
                             <a href="cateEdit.php?categorySub_id=<?php echo $result['categorySub_id'] ?>">Sửa</a>
                             <span>|</span>
-                            <a href="cateDel.php?categorySub_id=<?php echo $result['categorySub_id'] ?>">Xóa</a>
+                            <a onclick="return confirm('Bạn có muốn xóa danh mục này không?')" href="cateDel.php?categorySub_id=<?php echo $result['categorySub_id'] ?>">Xóa</a>
                         </td>
                     </tr>
             <?php

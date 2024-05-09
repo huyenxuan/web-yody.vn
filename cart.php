@@ -44,7 +44,7 @@ include("./front-end/fe_header.php");
                         <p class="desc">Tổng đơn hàng (Tạm tính) :</p>
                         <span class="price" id="order">299.000đ</span>
                     </div>
-                    <a href="./payment.html">Đặt hàng</a>
+                    <a href="payment.php">Đặt hàng</a>
                 </div>
             </div>
         </div>

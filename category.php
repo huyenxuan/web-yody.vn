@@ -1,7 +1,6 @@
 <?php
 include("./front-end/fe_header.php");
 include("admin/format.php");
-include("admin/class/showDetail.php");
 
 $product = new product;
 $format = new format;

@@ -1,7 +1,7 @@
 <?php
 include("./front-end/fe_header.php");
 include("admin/format.php");
-include("admin/class/showDetail.php");
+// include("admin/class/showFrontEnd.php");
 
 $product = new product;
 $format = new format;
@@ -17,6 +17,9 @@ $show_imgList = $product->show_imgList($product_id);
     .noiBat ul {
         padding-left: 40px;
         list-style: disc;
+    }
+    .add-to-cart-wrapper button {
+        background: #fcaf17 !important;
     }
 </style>
 <!-- ....................... -->
@@ -49,7 +52,6 @@ $show_imgList = $product->show_imgList($product_id);
 
                 <div class="box-danhGia">
                     <p class="hd">đánh giá</p>
-
                     <div class="content">
                         <p>Hiện tại sản phẩm chưa có đánh giá nào, bạn hãy trở thành người đầu tiên đánh giá cho
                             sản phẩm này</p>
@@ -59,7 +61,6 @@ $show_imgList = $product->show_imgList($product_id);
                     </div>
                 </div>
             </div>
-
             <div class="content-right">
                 <p class="hd"><?php echo $result['product_name'] ?></p>
                 <div class="ttin">
@@ -86,7 +87,6 @@ $show_imgList = $product->show_imgList($product_id);
                     <?php endif; ?>
                 </div>
                 <span class="color">Màu sắc: Xanh lục</span>
-
                 <div class="color-box">
                     <span class="item item-selected">
                         <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
@@ -98,7 +98,6 @@ $show_imgList = $product->show_imgList($product_id);
                         <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
                     </span>
                 </div>
-
                 <div class="box-size">
                     <span>M</span>
                     <span>L</span>
@@ -107,12 +106,10 @@ $show_imgList = $product->show_imgList($product_id);
                     <span>3XL</span>
                     <span>4XL</span>
                 </div>
-
                 <div class="tuVan-size">
                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/904142/assets/ic_blue_ruler_pen.svg?1687396460177" alt="">
                     <span>Giúp bạn chọn size</span>
                 </div>
-
                 <div class="form-addProduct">
                     <div class="number-product">
                         <span>-</span>
@@ -120,7 +117,6 @@ $show_imgList = $product->show_imgList($product_id);
                         <span>+</span>
                     </div>
                 </div>
-
                 <div class="uDai-box">
                     <div class="uDai">
                         <img src="./images/ic_payment_freeship.svg" alt="">
@@ -129,21 +125,18 @@ $show_imgList = $product->show_imgList($product_id);
                             với mọi đơn hàng từ 498k
                         </p>
                     </div>
-
                     <div class="uDai">
                         <p>
                             Miễn phí đổi trả tại 230+ <br>
                             cửa hàng trong 15 ngày
                         </p>
                     </div>
-
                     <div class="uDai">
                         <p>
                             Đa dạng phương thức thanh toán <br>
                             (VNPay, Momo, COD)
                         </p>
                     </div>
-
                     <div class="uDai">
                         <p>
                             Vận chuyển siêu tốc <br>
@@ -152,10 +145,10 @@ $show_imgList = $product->show_imgList($product_id);
                     </div>
                 </div>
                 <div class="add-to-cart-wrapper">
-                    <button type="submit">
+                    <a href="cart.php"><button type="submit">
                         <img src="https://bizweb.dktcdn.net/100/438/408/themes/949050/assets/shopping-cartupdate.svg?1714622112152" alt="">
                         Thêm vào giỏ hàng
-                    </button>
+                    </button></a>
                     <button type="submit">Mua ngay</button>
                 </div>
             </div>
@@ -181,23 +174,19 @@ $show_imgList = $product->show_imgList($product_id);
                         <i class="fa-solid fa-star"></i>
                         <span>5</span>
                     </div>
-
                     <divs class="soldInfo">
                         <div class="line"></div>
                         Đã bán<span>47.9K</span>
                     </divs>
                 </div>
-
                 <div class="giamGia">
                     <span>-50%</span>
                 </div>
-
                 <div class="mauAo">
                     <span class="item"> </span>
                     <span class="item"> </span>
                 </div>
             </div>
-
             <div class="product-item">
                 <a href="" class="product-link-img">
                     <img src="../general/images/ao-polo-nam-apm4235-vag-7.webp" alt="">
@@ -211,23 +200,19 @@ $show_imgList = $product->show_imgList($product_id);
                         <i class="fa-solid fa-star"></i>
                         <span>5</span>
                     </div>
-
                     <divs class="soldInfo">
                         <div class="line"></div>
                         Đã bán<span>47.9K</span>
                     </divs>
                 </div>
-
                 <div class="giamGia">
                     <span>-50%</span>
                 </div>
-
                 <div class="mauAo">
                     <span class="item"> </span>
                     <span class="item"> </span>
                 </div>
             </div>
-
             <div class="product-item">
                 <a href="" class="product-link-img">
                     <img src="https://bizweb.dktcdn.net/thumb/large/100/438/408/products/ao-polo-nnam-cafe-to-ong-apm6195-ddo-qsm6029-ghd-3-yody.jpg?v=1685152794000" alt="">
@@ -241,23 +226,19 @@ $show_imgList = $product->show_imgList($product_id);
                         <i class="fa-solid fa-star"></i>
                         <span>5</span>
                     </div>
-
                     <divs class="soldInfo">
                         <div class="line"></div>
                         Đã bán<span>47.9K</span>
                     </divs>
                 </div>
-
                 <div class="giamGia">
                     <span>-50%</span>
                 </div>
-
                 <div class="mauAo">
                     <span class="item"> </span>
                     <span class="item"> </span>
                 </div>
             </div>
-
             <div class="product-item">
                 <a href="" class="product-link-img">
                     <img src="https://bizweb.dktcdn.net/thumb/large/100/438/408/products/apm6297-tra-ao-polo-nam-3.jpg?v=1685506951000" alt="">
@@ -271,23 +252,19 @@ $show_imgList = $product->show_imgList($product_id);
                         <i class="fa-solid fa-star"></i>
                         <span>5</span>
                     </div>
-
                     <divs class="soldInfo">
                         <div class="line"></div>
                         Đã bán<span>47.9K</span>
                     </divs>
                 </div>
-
                 <div class="giamGia">
                     <span>-50%</span>
                 </div>
-
                 <div class="mauAo">
                     <span class="item"> </span>
                     <span class="item"> </span>
                 </div>
             </div>
-
             <div class="product-item">
                 <a href="" class="product-link-img">
                     <img src="https://bizweb.dktcdn.net/thumb/large/100/438/408/products/apm6113-nav-3.jpg?v=1681702352000" alt="">
@@ -301,17 +278,14 @@ $show_imgList = $product->show_imgList($product_id);
                         <i class="fa-solid fa-star"></i>
                         <span>5</span>
                     </div>
-
                     <divs class="soldInfo">
                         <div class="line"></div>
                         Đã bán<span>47.9K</span>
                     </divs>
                 </div>
-
                 <div class="giamGia">
                     <span>-50%</span>
                 </div>
-
                 <div class="mauAo">
                     <span class="item">
                         <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
@@ -327,7 +301,6 @@ $show_imgList = $product->show_imgList($product_id);
         </div>
     </div>
 </div>
-
 <div class="lienquan">
     <p class="lienQuan-hd">
         SẢN PHẨM ĐÃ XEM
@@ -338,25 +311,21 @@ $show_imgList = $product->show_imgList($product_id);
             <p class="name">Áo Thu Nam Cổ Tròn Cơ Bản Cotton Usa</p>
             <span class="price">229.000đ</span>
         </div>
-
         <div class="item">
             <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
             <p class="name">Áo Thu Nam Cổ Tròn Cơ Bản Cotton Usa</p>
             <span class="price">229.000đ</span>
         </div>
-
         <div class="item">
             <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
             <p class="name">Áo Thu Nam Cổ Tròn Cơ Bản Cotton Usa</p>
             <span class="price">229.000đ</span>
         </div>
-
         <div class="item">
             <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
             <p class="name">Áo Thu Nam Cổ Tròn Cơ Bản Cotton Usa</p>
             <span class="price">229.000đ</span>
         </div>
-
         <div class="item">
             <img src="https://bizweb.dktcdn.net/100/438/408/products/ao-polo-nam-vai-cafe-to-ong-yody-apm7125-bee-11.jpg?v=1712721144410" alt="">
             <p class="name">Áo Thu Nam Cổ Tròn Cơ Bản Cotton Usa</p>

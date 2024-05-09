@@ -1,10 +1,22 @@
 <!-- main -->
+<style>
+    .sidebar, .main-content {
+        height: 100vh;
+    }
+</style>
 <main>
     <div class="container">
         <!-- sidebar -->
         <div class="sidebar">
             <div class="sidebar-sub order">
                 <h3><a href="order.php" style="text-decoration: none; color: black">Đơn hàng</a></h3>
+            </div>
+            <div class="sidebar-sub slider">
+                <h3>Banner Slider</h3>
+                <ul>
+                    <li><a href="bannerAdd.php">Thêm ảnh banner</a></li>
+                    <li><a href="bannerShow.php">Danh sách ảnh banner</a></li>
+                </ul>
             </div>
             <div class="sidebar-sub category">
                 <h3>Danh mục</h3>

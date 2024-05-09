@@ -275,7 +275,7 @@
     padding: 12px 0;
     margin-bottom: 10px;
 }
-.add-to-cart-wrapper button:first-child:hover {
+/* .add-to-cart-wrapper button:first-child:hover {
     background-color: #f6bf50;
 }
 .add-to-cart-wrapper button:last-child {
@@ -283,7 +283,7 @@
     color: #2A2A86;
     font-weight: 600;
     border: 2px solid #2A2A86;
-}
+} */
 .content-right .uDai-box{
     display: flex;
     margin-top: 20px;
