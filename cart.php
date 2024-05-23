@@ -3,6 +3,7 @@ include("./front-end/fe_header.php");
 ?>
 <head>
     <link rel="stylesheet" href="./css/cart.css">
+    <title>Giỏ hàng Yody</title>
 </head>
 <!-- cart -->
 <div class="bg">

@@ -16,6 +16,8 @@ $show_productJeans = $product->show_productJeans();
 $show_productOffice = $product->show_productOffice();
 $show_productAccessory = $product->show_productAccessory();
 ?>
+
+<title>YODY - Look Good - Feel Good</title>
 <link rel="stylesheet" href="css/trangchu.css">
 <style>
     .del {
@@ -542,7 +544,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultFlashSale['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultFlashSale['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultFlashSale['product_img'] ?>" title="<?php echo $resultFlashSale['product_name'] ?>">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
@@ -618,7 +620,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultNew['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultNew['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultNew['product_img'] ?>" title="<?php echo $resultNew['product_name'] ?>">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
@@ -697,11 +699,12 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultBestSaler['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultBestSaler['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultBestSaler['product_img'] ?>" title="<?php echo $resultBestSaler['product_name'] ?>">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultBestSaler['product_id'] ?>"><?php echo $resultBestSaler['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultBestSaler['product_id'] ?>">
+                                                            <?php echo $resultBestSaler['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultBestSaler['price_sale'] && $resultBestSaler['price_sale'] != 0) : ?>
@@ -773,11 +776,12 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultPolo['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultPolo['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultPolo['product_img'] ?>" title="<?php echo $resultPolo['product_name'] ?>">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
-                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultPolo['product_id'] ?>"><?php echo $resultPolo['product_name'] ?></a>
+                                                    <h3 class="product-name"><a href="detail.php?product_id=<?php echo $resultPolo['product_id'] ?>">
+                                                    <?php echo $resultPolo['product_name'] ?></a>
                                                     </h3>
                                                     <div class="product-price" style="display: flex">
                                                         <?php if ($resultPolo['price_sale'] && $resultPolo['price_sale'] != 0) : ?>
@@ -849,7 +853,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultSport['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultSport['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultSport['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
@@ -925,7 +929,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultTShirt['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultTShirt['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultTShirt['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
@@ -1001,7 +1005,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultJeans['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultJeans['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultJeans['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
@@ -1077,7 +1081,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultOffice['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultOffice['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultOffice['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">
@@ -1153,7 +1157,7 @@ $show_productAccessory = $product->show_productAccessory();
                                             <div class="item-product">
                                                 <div class="product-thumbnail">
                                                     <a href="detail.php?product_id=<?php echo $resultAccessory['product_id'] ?>" class="image">
-                                                        <img src="./admin/uploads/<?php echo $resultAccessory['product_img'] ?>" alt="">
+                                                        <img src="admin/uploads/<?php echo $resultAccessory['product_img'] ?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="product-info">

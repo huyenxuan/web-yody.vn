@@ -1,6 +1,7 @@
 <?php
 include("./front-end/fe_header.php");
 ?>
+<title>Đăng ký Yody</title>
 <link rel="stylesheet" href="./css/account.css">
 <!-- register -->
 <div class="main-content">
@@ -36,7 +37,7 @@ include("./front-end/fe_header.php");
 
         <div class="regis-form">
             <span>Bạn đã có tài khoản?</span>
-            <a href="/page/login.html">Đăng nhập ngay!</a>
+            <a href="login.php">Đăng nhập ngay!</a>
         </div>
     </div>
 </div>

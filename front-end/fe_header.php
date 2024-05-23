@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YODY - Look Good - Feel Good</title>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -701,7 +700,7 @@ $product = new product;
                                                 </ul>
                                             </li>
                                             <li class="nav-item has-child">
-                                                <a class="dad-list" href="" title="BLOG">blog</a>
+                                                <a class="dad-list" href="blog.php" title="BLOG">blog</a>
                                                 <!-- sub menu -->
                                                 <ul class="item-small">
                                                     <li>

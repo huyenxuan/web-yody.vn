@@ -20,10 +20,20 @@ class product
     }
     public function classify($classify_id)
     {
-        $query = "SELECT cs.*, csub.* 
-                FROM tbl_classify AS cs
-                LEFT JOIN tbl_categorysub AS csub ON cs.categorySub_id = csub.categorySub_id
+        $query = "SELECT cls.*, csub.* 
+                FROM tbl_classify AS cls
+                LEFT JOIN tbl_categorysub AS csub ON cls.categorySub_id = csub.categorySub_id
                 WHERE classify_id = '$classify_id'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+
+    // show category
+    public function category($category_id)
+    {
+        $query = "SELECT *
+                FROM tbl_category
+                WHERE category_id = '$category_id'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -31,10 +41,10 @@ class product
     // show categorySub
     public function categorySub($categorySub_id)
     {
-        $query = "SELECT cs.*, csub.* 
-        FROM tbl_categorysub AS cs
-        LEFT JOIN tbl_category AS csub ON cs.category_id = csub.category_id
-        WHERE categorySub_id = '$categorySub_id'";
+        $query = "SELECT csub.*, cs.* 
+                FROM tbl_categorysub AS csub
+                LEFT JOIN tbl_category AS cs ON csub.category_id = cs.category_id
+                WHERE categorySub_id = '$categorySub_id'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -143,6 +153,32 @@ class product
     public function show_productClassify($classify_id)
     {
         $query = "SELECT * FROM tbl_product WHERE classify_id = '$classify_id' LIMIT 20";
+        $result = $this->db->select($query);
+        return $result;
+    }
+}
+
+class blog
+{
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = new Database;
+    }
+    public function show_blog()
+    {
+        $query = "SELECT blog.*, sub.categorySub_name
+            FROM tbl_blog AS blog
+            LEFT JOIN tbl_categorysub AS sub ON blog.categoryBlog_id = sub.categorySub_id
+            ORDER BY blog.blog_id ASC";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_blog($blog_id) {
+        $query = "SELECT *
+            FROM tbl_blog 
+            WHERE blog_id = '$blog_id'";
         $result = $this->db->select($query);
         return $result;
     }

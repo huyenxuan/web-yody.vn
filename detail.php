@@ -11,7 +11,7 @@ $show_product = $product->show_product($product_id);
 $result = $show_product->fetch_assoc();
 $show_imgList = $product->show_imgList($product_id);
 ?>
-
+<title><?php echo $result['product_name'] ?></title>
 <link rel="stylesheet" href="./css/detail.css">
 <style>
     .noiBat ul {
@@ -20,6 +20,12 @@ $show_imgList = $product->show_imgList($product_id);
     }
     .add-to-cart-wrapper button {
         background: #fcaf17 !important;
+    }
+    .img-list .img{
+        width: 390px !important;
+    }
+    .img-list img {
+        width: 100% !important;
     }
 </style>
 <!-- ....................... -->
@@ -38,7 +44,7 @@ $show_imgList = $product->show_imgList($product_id);
                         while ($resultImgList = $show_imgList->fetch_assoc()) {
                     ?>
                             <div class="img">
-                                <img src="./admin//uploads/<?php echo $resultImgList['product_imgList'] ?>" alt="">
+                                <img src="admin/uploads/<?php echo $resultImgList['product_imgList'] ?>" alt="">
                             </div>
                     <?php
                         }

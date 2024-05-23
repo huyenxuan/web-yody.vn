@@ -9,6 +9,7 @@ $product = new product;
 $keyword = $_GET['keyword'];
 $show_search = $product->search_product($keyword);
 ?>
+<title>Tìm kiếm <?php echo $keyword ?></title>
 <link rel="stylesheet" href="./css/category.css">
 <style>
     .wrapper-ctn {
@@ -46,18 +47,12 @@ $show_search = $product->search_product($keyword);
         margin-bottom: 30px;
     }
     .none-search {
-        width: 100%;
+        width: 1240px;
         text-align: center;
         text-transform: uppercase;
     }
     .list-product .row {
         justify-content: unset;
-    }
-    .product-ctn {
-        margin-right: 34px;
-    }
-    .product-ctn:nth-child(5n) {
-        margin-right: 0;
     }
 </style>
 <div class="wrapper-ctn">

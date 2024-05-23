@@ -11,6 +11,7 @@ $show_product = $product->show_productCateSub($categorySub_id);
 $show_categorySub = $product->categorySub($categorySub_id);
 $result = $show_categorySub->fetch_assoc();
 ?>
+<title><?php echo $result['categorySub_name'] ?> - <?php echo $result['category_name'] ?></title>
 <link rel="stylesheet" href="./css/category.css">
 <style>
     .wrapper-ctn {
@@ -18,11 +19,9 @@ $result = $show_categorySub->fetch_assoc();
     }
 
     .list-product .row {
-        justify-content: unset;
-    }
-
-    .product-ctn {
-        margin-right: 34px;
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 22px !important;
     }
 
     .product-ctn:nth-child(5n) {
@@ -39,6 +38,12 @@ $result = $show_categorySub->fetch_assoc();
     .product-name {
         justify-content: unset;
     }
+    .none-search {
+        color: black;
+        width: 1240px;
+        text-align: center;
+        text-transform: uppercase;
+    }
 </style>
 <!-- product -->
 <div class="wrapper-ctn">
@@ -54,7 +59,7 @@ $result = $show_categorySub->fetch_assoc();
                             <div class="item-product">
                                 <div class="product-thumbnail">
                                     <a href="detail.php?product_id=<?php echo $resultProduct['product_id'] ?>" class="image">
-                                        <img src="./admin/uploads/<?php echo $resultProduct['product_img'] ?>" alt="">
+                                        <img src="admin/uploads/<?php echo $resultProduct['product_img'] ?>" alt="">
                                     </a>
                                 </div>
                                 <div class="product-info">
@@ -88,7 +93,7 @@ $result = $show_categorySub->fetch_assoc();
                     }
                 } else {
                     ?>
-                    <h3>Hiện tại chưa có sản phẩm</h3>
+                    <h3 class="none-search">Hiện tại chưa có sản phẩm</h3>
                 <?php
                 }
                 ?>

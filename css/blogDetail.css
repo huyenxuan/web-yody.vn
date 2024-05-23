@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'SVN-Gilroy', sans-serif;;
+}
+
+.wrapper-ctn {
+    width: 100%;
+    max-width: 1240px;
+    margin: auto;
+    margin-top: 120px;
+}
+.main-content {
+    width: 1100px;
+    padding: 0 30px;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+/* left */
+.main-content .left {
+    width: 690px;
+}
+/* title */
+.left .title a {
+    font-size: 13px;
+    color: black;
+    text-decoration: none;
+}
+.title span {
+    font-size: 13px;
+    color: #fcaf17;
+}
+.left .blog-name {
+    margin: 10px 0;
+    color: #22215B;
+}
+.blog-name h1 {
+    font-size: 31px;
+}
+/* meta */
+.meta {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    line-height: 32px;
+    margin: 0;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.meta .author {
+    background: url(https://bizweb.dktcdn.net/100/438/408/themes/950002/assets/blog_author.png?1715955464521) left center no-repeat;
+    float: left;
+    padding-left: 38px;
+    color: #000;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+.meta .date {
+    background: url(https://bizweb.dktcdn.net/100/438/408/themes/950002/assets/clockico.svg) left center no-repeat;
+    padding-left: 23px;
+    margin-left: 80px;
+    font-size: 13px;
+}
+/* banner blog */
+.left .banner-blog {
+    width: 100%;
+    margin: 5px 0 20px;
+}
+.banner-blog img {
+    width: 100%;
+}
+.left .content {
+    text-align: justify;
+}
+/* share socail */
+.left .share {
+    color: #7A7A9D;
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    float: right;
+    padding: 10px 0 15px;
+}
+.share a {
+    color: #7A7A9D;
+}
+/* comment */
+.left .comment {
+    margin-top: 60px;
+}
+.comment .title-cmt {
+    border-bottom: 1px solid #DDE1EF;
+    margin-bottom: 20px;
+}
+.title-cmt div {
+    text-transform: uppercase;
+    color: #fcaf17;
+    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 3px solid #fcaf17;
+}
+.comment form input, form textarea {
+    padding: 15px;
+    border: 1px solid #DDE1EF;
+    border-radius: 5px;
+    outline: none;
+}
+.comment .row {
+    display: flex;
+    justify-content: space-between;
+}
+.comment form input {
+    width: 335px;
+}
+.comment textarea {
+    width: 100%;
+    margin-top: 15px;
+}
+.comment form button {
+    color: white;
+    background-color: #fcaf17;
+    font-family: sans-serif;
+    font-size: 17px;
+    width: 180px;
+    height: 45px;
+    text-align: center;
+    margin: 10px 0 55px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* right */
+.main-content .right {
+    width: 300px;
+}
+.right .ads {
+    position: sticky;
+    top: 110px;
+}
+.right .ads img {
+    width: 100%;
+    border-radius: 15px;
+}

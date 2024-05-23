@@ -3,6 +3,16 @@
     .sidebar, .main-content {
         height: 100vh;
     }
+    a {
+        text-decoration: none; 
+        color: black
+    }
+    .container, .sidebar, .main-content {
+        height: unset !important;
+    }
+    .sidebar-sub:last-child {
+        padding-bottom: 40px;
+    }
 </style>
 <main>
     <div class="container">
@@ -55,5 +65,15 @@
                     <li><a href="">Sản phẩm bán chạy</a></li>
                     <li><a href="">Sản phẩm bán chậm</a></li>
                 </ul>
+            </div>
+            <div class="sidebar-sub account">
+                <h3>Quản lý người dùng</h3>
+                <ul>
+                    <li><a href="">Thêm tài khoản</a></li>
+                    <li><a href="">Danh sách tài khoản</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-sub feedback">
+                <h3><a href="">Quản lý đánh giá</a></h3>
             </div>
         </div>
