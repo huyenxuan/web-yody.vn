@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insert_product = $product->insert_product($_POST, $_FILES);
 }
 ?>
+<title>Thêm sản phẩm</title>
 <!-- main content -->
 <style>
     .main-content {

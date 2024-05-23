@@ -6,6 +6,7 @@ include("class/cateSubClass.php");
 $categorySub = new categorySub;
 $show_categorySub = $categorySub->show_categorySub();
 ?>
+<title>Danh sách danh mục</title>
 <style>
     .main-content {
         height: 100%;

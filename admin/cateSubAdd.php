@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     exit();
 }
 ?>
+<title>Thêm danh mục con</title>
 <!-- main content -->
 <style>
     select,

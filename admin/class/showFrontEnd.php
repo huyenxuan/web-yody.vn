@@ -70,13 +70,21 @@ class product
     }
     public function show_productPolo()
     {
-        $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%polo%' ORDER BY product_id DESC LIMIT 12";
+        $query = "SELECT * FROM tbl_product 
+                WHERE LOWER(product_name) 
+                LIKE '%polo%' 
+                ORDER BY product_id DESC 
+                LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
     public function show_productSport()
     {
-        $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%thể thao%' OR LOWER(product_name) LIKE '%sport%' LIMIT 12";
+        $query = "SELECT * FROM tbl_product 
+                WHERE LOWER(product_name) 
+                LIKE '%thể thao%' 
+                OR LOWER(product_name) 
+                LIKE '%sport%' LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
@@ -94,29 +102,35 @@ class product
     }
     public function show_productOffice()
     {
-        $query = "SELECT * FROM tbl_product WHERE LOWER(product_name) LIKE '%sơ mi%' OR LOWER(product_name) LIKE '%quần âu%' OR LOWER(product_name) LIKE '%quần tây%' LIMIT 12";
+        $query = "SELECT * FROM tbl_product 
+                WHERE LOWER(product_name) 
+                LIKE '%sơ mi%' OR LOWER(product_name) 
+                LIKE '%quần âu%' OR LOWER(product_name) 
+                LIKE '%quần tây%' LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
     public function show_productAccessory()
     {
-        $query = "SELECT * FROM tbl_product WHERE categorySub_id IN (9, 16, 23) LIMIT 12";
+        $query = "SELECT * FROM tbl_product prod
+                LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
+                LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+                WHERE sub.categorySub_id IN (9, 16, 23) LIMIT 12";
         $result = $this->db->select($query);
         return $result;
     }
     public function search_product($search)
     {
-        $query = "SELECT p.*
-        FROM tbl_product p
-        LEFT JOIN tbl_classify cs ON p.classify_id = cs.classify_id
-        LEFT JOIN tbl_categorysub csub ON cs.categorySub_id = csub.categorySub_id
-        LEFT JOIN tbl_category c ON csub.category_id = c.category_id
+        $query = "SELECT prod.*
+        FROM tbl_product prod
+        LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
+        LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+        LEFT JOIN tbl_category cat ON csub.category_id = cat.category_id
         WHERE p.product_name LIKE '%$search%'
            OR c.category_name LIKE '%$search%'
            OR csub.categorySub_name LIKE '%$search%'
            OR cs.classify_name LIKE '%$search%'
-           OR p.product_id = '$search'
-        ";
+           OR p.product_id = '$search'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -134,22 +148,31 @@ class product
         $result = $this->db->select($query);
         return $result;
     }
+
+    // show product category
     public function show_productCate($category_id)
     {
-        $query = "SELECT * FROM tbl_product WHERE category_id = '$category_id' LIMIT 20";
+        $query = "SELECT prod.* FROM tbl_product prod
+                LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
+                LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+                LEFT JOIN tbl_category cat ON sub.category_id = cat.category_id
+                WHERE cat.category_id = '$category_id' LIMIT 20";
         $result = $this->db->select($query);
         return $result;
     }
+
+    // show product categorysub
     public function show_productCateSub($categorySub_id)
     {
-        $query = "SELECT p.*
-        FROM tbl_product p
-        LEFT JOIN tbl_classify cs ON p.classify_id = cs.classify_id
-        LEFT JOIN tbl_categorysub csub ON cs.categorySub_id = csub.categorySub_id
-        WHERE csub.categorySub_id = '$categorySub_id'";
+        $query = "SELECT prod.* FROM tbl_product prod
+                LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
+                LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+                WHERE sub.categorySub_id = '$categorySub_id'";
         $result = $this->db->select($query);
         return $result;
     }
+
+    // show product classify
     public function show_productClassify($classify_id)
     {
         $query = "SELECT * FROM tbl_product WHERE classify_id = '$classify_id' LIMIT 20";
@@ -158,6 +181,7 @@ class product
     }
 }
 
+// blog
 class blog
 {
     private $db;
@@ -175,7 +199,8 @@ class blog
         $result = $this->db->select($query);
         return $result;
     }
-    public function get_blog($blog_id) {
+    public function get_blog($blog_id)
+    {
         $query = "SELECT *
             FROM tbl_blog 
             WHERE blog_id = '$blog_id'";

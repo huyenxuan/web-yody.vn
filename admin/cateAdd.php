@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 ?>
-
+<title>Thêm danh mục</title>
 <!-- main content -->
 <style>
     input {

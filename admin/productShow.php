@@ -8,6 +8,7 @@ $product = new product;
 $format = new format;
 $show_product = $product->show_product();
 ?>
+<title>Danh sách sản phẩm</title>
 <!-- main content -->
 <style>
     .main-content {

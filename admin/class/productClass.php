@@ -13,8 +13,6 @@ class product
     public function insert_product()
     {
         $product_name = $_POST['product_name'];
-        $category_id = $_POST['category_id'];
-        $categorySub_id = $_POST['categorySub_id'];
         $classify_id = $_POST['classify_id'];
         $price_old = $_POST['price_old'];
         $price_sale = $_POST['price_sale'];
@@ -24,8 +22,6 @@ class product
 
         $query = "INSERT INTO tbl_product (
             product_name, 
-            category_id, 
-            categorySub_id, 
             classify_id, 
             price_old, 
             price_sale, 
@@ -33,8 +29,6 @@ class product
             product_img) 
             VALUES (
                 '$product_name', 
-                '$category_id', 
-                '$categorySub_id', 
                 '$classify_id', 
                 '$price_old', 
                 '$price_sale', 
@@ -77,38 +71,47 @@ class product
     }
     public function show_product()
     {
-        // $query = "SELECT prod.*, cat.category_name, sub.categorySub_name, cla.classify_name, imgList.product_imgList
-        //     FROM tbl_product AS prod
-        //     LEFT JOIN tbl_category AS cat ON prod.category_id = cat.category_id
-        //     LEFT JOIN tbl_categorysub AS sub ON prod.categorySub_id = sub.categorySub_id
-        //     LEFT JOIN tbl_classify AS cla ON prod.classify_id = cla.classify_id
-        //     LEFT JOIN tbl_product_imgList AS imgList ON prod.product_id = imgList.product_id
-        //     ORDER BY prod.product_id ASC";
         $query = "SELECT * FROM tbl_product";
         $result = $this->db->select($query);
         return $result;
     }
     public function show_categorySub_ajax($category_id)
     {
-        $query = "SELECT * FROM tbl_categorysub WHERE category_id = '$category_id'";
+        $query = "SELECT * 
+                FROM tbl_categorySub
+                WHERE category_id = '$category_id'";
         $result = $this->db->select($query);
         return $result;
     }
     public function show_classify_ajax($categorySub_id)
     {
-        $query = "SELECT * FROM tbl_classify WHERE categorySub_id = '$categorySub_id'";
+        $query = "SELECT cls.* FROM tbl_classify cls
+                LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+                WHERE sub.categorySub_id = '$categorySub_id'";
         $result = $this->db->select($query);
         return $result;
     }
     public function get_product($product_id)
     {
-        $query = "SELECT * FROM tbl_product WHERE product_id = '$product_id'";
+        $query = "SELECT prod.*, sub.categorySub_id,cat.category_id
+            FROM tbl_product prod
+            LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
+            LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+            LEFT JOIN tbl_category cat ON sub.category_id = cat.category_id
+            WHERE product_id = '$product_id'";
         $result = $this->db->select($query);
         return $result;
     }
-    public function update_product($category_id, $categorySub_id, $classify_id, $product_name, $price_old, $price_sale, $product_desc, $product_img, $filename, $filetmp, $product_id)
+    public function update_product($product_name, $classify_id, $price_old, $price_sale, $product_desc, $product_img, $filename, $filetmp, $product_id)
     {
-        $query = "UPDATE tbl_product SET product_name = '$product_name', category_id = '$category_id', categorySub_id = '$categorySub_id', classify_id = '$classify_id', price_old = '$price_old', price_sale = '$price_sale', product_desc = '$product_desc', product_img = '$product_img' WHERE product_id = '$product_id'";
+        $query = "UPDATE tbl_product 
+                SET product_name = '$product_name', 
+                    classify_id = '$classify_id', 
+                    price_old = '$price_old', 
+                    price_sale = '$price_sale', 
+                    product_desc = '$product_desc', 
+                    product_img = '$product_img' 
+                WHERE product_id = '$product_id'";
         $result = $this->db->update($query);
         if ($result) {
             $query = "SELECT * FROM tbl_product ORDER BY product_id DESC LIMIT 1";

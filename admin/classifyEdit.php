@@ -1,6 +1,4 @@
 <?php
-include("view/header.php");
-include("view/sidebar.php");
 include("class/classifyClass.php");
 
 $classify = new classify;
@@ -12,15 +10,16 @@ if ($get_classify) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $category_id = $_POST['category_id'];
     $categorySub_id = $_POST['categorySub_id'];
     $classify_name = $_POST['classify_name'];
-    $update_classify = $classify->update_classify($category_id, $categorySub_id, $classify_name, $classify_id);
+    $update_classify = $classify->update_classify($categorySub_id, $classify_name, $classify_id);
     header("Location: classifyShow.php");
     exit();
 }
+include("view/header.php");
+include("view/sidebar.php");
 ?>
-
+<title>Chỉnh sửa phân loại sản phẩm</title>
 <!-- main content -->
 <style>
     select,
@@ -47,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Sửa loại sản phẩm</h2>
     <form action="" method="POST">
         <p>Danh mục cha</p>
-        <select name="category_id" id="">
+        <select name="category_id" id="category_id">
             <option value="#">--- Chọn danh mục ---</option>
             <?php
             $show_category = $classify->show_category();
@@ -65,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </select><br>
         <p>Danh mục con</p>
-        <select name="categorySub_id" id="">
+        <select name="categorySub_id" id="categorySub_id">
             <option value="">--- Danh mục con ---</option>
             <?php
             $show_categorySub = $classify->show_categorySub();
@@ -87,3 +86,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button>Sửa</button>
     </form>
 </div>
+<script>
+    $(document).ready(function() {
+        $("#category_id").change(function() {
+            var cate= $(this).val();
+            $.get("productAddAjax.php", {
+                category_id: cate
+            }, function(data) {
+                $("#categorySub_id").html(data);
+            });
+        });
+    });
+</script>

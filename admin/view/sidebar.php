@@ -1,17 +1,36 @@
 <!-- main -->
 <style>
-    .sidebar, .main-content {
+    .sidebar,
+    .main-content {
         height: 100vh;
     }
+
     a {
-        text-decoration: none; 
+        text-decoration: none;
         color: black
     }
-    .container, .sidebar, .main-content {
+
+    .container,
+    .sidebar,
+    .main-content {
         height: unset !important;
     }
+
     .sidebar-sub:last-child {
         padding-bottom: 40px;
+    }
+
+    .logout {
+        margin-top: 20px;
+    }
+
+    .logout button {
+        background: red;
+        color: white;
+        outline: none;
+        border: none;
+        padding: 12px 35px;
+        cursor: pointer;
     }
 </style>
 <main>
@@ -37,12 +56,12 @@
                 </ul>
             </div>
             <div class="sidebar-sub product-type">
-                    <h3>Loại sản phẩm</h3>
-                    <ul>
-                        <li><a href="classifyAdd.php">Thêm loại sản phẩm</a></li>
-                        <li><a href="classifyShow.php">Danh sách loại sản phẩm</a></li>
-                    </ul>
-                </div>
+                <h3>Loại sản phẩm</h3>
+                <ul>
+                    <li><a href="classifyAdd.php">Thêm loại sản phẩm</a></li>
+                    <li><a href="classifyShow.php">Danh sách loại sản phẩm</a></li>
+                </ul>
+            </div>
             <div class="sidebar-sub product">
                 <h3>Sản phẩm</h3>
                 <ul>
@@ -75,5 +94,8 @@
             </div>
             <div class="sidebar-sub feedback">
                 <h3><a href="">Quản lý đánh giá</a></h3>
+            </div>
+            <div class="sidebar-sub logout">
+                <a href="logout.php"><button>Logout</button></a>
             </div>
         </div>

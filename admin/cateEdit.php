@@ -1,6 +1,4 @@
 <?php
-include("view/header.php");
-include("view/sidebar.php");
 include("class/cateSubClass.php");
 
 $categorySub = new categorySub;
@@ -19,8 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
+include("view/header.php");
+include("view/sidebar.php");
 ?>
-
+<title>Chỉnh sửa danh mục</title>
 <!-- main content -->
 <style>
     .hide {

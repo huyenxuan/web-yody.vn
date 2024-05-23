@@ -1,6 +1,4 @@
 <?php
-include("view/header.php");
-include("view/sidebar.php");
 include("class/productClass.php");
 
 $product = new product;
@@ -14,6 +12,7 @@ if ($get_product) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category_id = $_POST['category_id'];
     $categorySub_id = $_POST['categorySub_id'];
+
     $classify_id = $_POST['classify_id'];
     $product_name = $_POST['product_name'];
     $price_old = $_POST['price_old'];
@@ -22,12 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $product_img = $_FILES['product_img']['name'];
     $filename = $_FILES['product_imgList']['name'];
     $filetmp = $_FILES['product_imgList']['tmp_name'];
-    $update_product = $product->update_product($category_id, $categorySub_id, $classify_id, $product_name, $price_old, $price_sale, $product_desc, $product_img, $filename, $filetmp, $product_id);
+    $update_product = $product->update_product($classify_id, $product_name, $price_old, $price_sale, $product_desc, $product_img, $filename, $filetmp, $product_id);
     header("Location: productShow.php");
     exit();
 }
+include("view/header.php");
+include("view/sidebar.php");
 ?>
-
+<title>Chỉnh sửa sản phẩm</title>
 <!-- main content -->
 <style>
     .main-content {
@@ -78,9 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         box-sizing: unset;
         cursor: pointer;
     }
+
     button:hover {
         background-color: gray;
     }
+
     label,
     .label {
         display: flex;
@@ -382,6 +385,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script>
     $(document).ready(function() {
+        $("#category_id").change(function() {
+            var cate= $(this).val();
+            $.get("productAddAjax.php", {
+                category_id: cate
+            }, function(data) {
+                $("#categorySub_id").html(data);
+            });
+        });
+
         $("#categorySub_id").change(function() {
             var cateSub = $(this).val();
             $.get("productAddAjax.php", {

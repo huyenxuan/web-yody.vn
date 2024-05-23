@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insert_blog = $blog->insert_blog($categoryBlog_id, $blog_name, $blog_img, $blog_content);
 }
 ?>
+<title>Thêm bài viết</title>
 <!-- main content -->
 <style>
     .main-content {

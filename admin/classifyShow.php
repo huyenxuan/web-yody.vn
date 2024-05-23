@@ -6,6 +6,7 @@ include ("class/classifyClass.php");
 $classify = new classify;
 $show_classify = $classify->show_classify();
 ?>
+<title>Danh sách phân loại sản phẩm</title>
 <!-- main content -->
 <style>
     .main-content {

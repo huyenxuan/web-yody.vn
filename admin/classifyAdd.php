@@ -6,16 +6,15 @@ include("class/classifyClass.php");
 $classify = new classify;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $category_id = $_POST['category_id'];
     $categorySub_id = $_POST['categorySub_id'];
     $classify_name = $_POST['classify_name'];
-    $insert_classify = $classify->insert_classify($category_id, $categorySub_id, $classify_name);
+    $insert_classify = $classify->insert_classify($categorySub_id, $classify_name);
     // Chuyển hướng người dùng đến trang cateAdd.php
     header("Location: classifyAdd.php?classify_name=" . urlencode($classify_name));
     exit();
 }
 ?>
-
+<title>Thêm phân loại</title>
 <!-- main content -->
 <style>
     select,

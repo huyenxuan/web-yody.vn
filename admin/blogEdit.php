@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $update_blog = $blog->update_blog($categoryBlog_id, $blog_name, $blog_img, $blog_content, $blog_id);
 }
 ?>
-
+<title>Chỉnh sửa bài viết</title>
 <!-- main content -->
 <style>
     .main-content {

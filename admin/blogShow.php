@@ -8,6 +8,7 @@ $blog = new blog;
 $format = new format;
 $show_blog = $blog->show_blog();
 ?>
+<title>Danh sách bài viết</title>
 <!-- main content -->
 <style>
     .main-content {
