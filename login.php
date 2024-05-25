@@ -1,5 +1,26 @@
 <?php
+ob_start(); // Bắt đầu bộ đệm đầu ra
+session_start();
+
 include("./front-end/fe_header.php");
+$account = new account();
+$loginUser = $account->loginUser();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    if ($loginUser) {
+        while ($resultUser = $loginUser->fetch_assoc()) {
+            if ($resultUser['email'] == $email && $resultUser['password'] == $pass) {
+                $_SESSION['email'] = $email;
+                header('Location: index.php');
+                exit();
+            }
+        }
+    }
+}
+
 ?>
 <title>Đăng nhập Yody</title>
 <link rel="stylesheet" href="./css/account.css">
@@ -22,9 +43,9 @@ include("./front-end/fe_header.php");
         <div class="title">
             <span>ĐĂNG</span><span style="color: #FCAF17;"> NHẬP</span>
         </div>
-        <form action="" class="form-login">
-            <input type="text" name="" id="email" placeholder="Email">
-            <input type="password" name="" id="pass" placeholder="Mật khẩu">
+        <form action="" class="form-login" method="POST">
+            <input required type="text" name="email" id="email" placeholder="Email">
+            <input required type="password" name="pass" id="pass" placeholder="Mật khẩu">
             <i id="togglePassword" class="fa-solid fa-eye"></i>
             <button type="submit">Đăng nhập</button>
         </form>
@@ -68,4 +89,5 @@ include("./front-end/fe_header.php");
 
 <?php
 include("./front-end/fe_footer.php");
+ob_end_flush(); // Gửi tất cả đầu ra từ bộ đệm
 ?>

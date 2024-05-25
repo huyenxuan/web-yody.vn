@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include("admin/class/showFrontEnd.php");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./css/main.css">
-</head>
+$product = new product;
+$account = new account();
+
+?>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="./css/main.css">
 <style>
     /* back top */
     html {
@@ -24,13 +25,19 @@
         width: 45px;
         height: 45px;
     }
+
+    .user:hover .item-small {
+        display: block;
+    }
+
+    .user .item-small {
+        top: 90px;
+        left: 1000px;
+    }
+    .user .item-small li:not(:nth-last-child(2)) a {
+        border: none !important;
+    }
 </style>
-<?php
-include("admin/class/showFrontEnd.php");
-
-$product = new product;
-
-?>
 
 <body>
     <main>
@@ -49,7 +56,7 @@ $product = new product;
                                 </div>
                                 <div class="search-ctn">
                                     <div class="search">
-                                        <form action="http://localhost/project/search.php" class="form-search" method="GET">
+                                        <form action="search.php" class="form-search" method="GET">
                                             <input required name="keyword" type="text" placeholder="Tìm kiếm" title="Vui lòng điền vào trường này" value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
                                             <button>
                                                 <img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-search.svg" alt="">
@@ -551,7 +558,7 @@ $product = new product;
                                                             <li class="list-item1">
                                                                 <a href="categorySub.php?categorySub_id=21" class="title-m" title="ĐỒ THỂ TRẺ EM">đồ thể trẻ em</a>
                                                                 <ul>
-                                                                <?php
+                                                                    <?php
                                                                     $categorySub_id = 21;
                                                                     $show_product = $product->show_classify($categorySub_id);
                                                                     if ($show_product) {
@@ -573,7 +580,7 @@ $product = new product;
                                                                     váy
                                                                     bé gái</a>
                                                                 <ul>
-                                                                <?php
+                                                                    <?php
                                                                     $categorySub_id = 22;
                                                                     $show_product = $product->show_classify($categorySub_id);
                                                                     if ($show_product) {
@@ -594,7 +601,7 @@ $product = new product;
                                                                 <a href="categorySub.php?categorySub_id=23" class="title-m" title="ĐẦM BÉ GÁI">đầm bé
                                                                     gái</a>
                                                                 <ul>
-                                                                <?php
+                                                                    <?php
                                                                     $categorySub_id = 23;
                                                                     $show_product = $product->show_classify($categorySub_id);
                                                                     if ($show_product) {
@@ -745,10 +752,46 @@ $product = new product;
                                         </a>
                                     </div>
                                     <div class="user">
-                                        <img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-user.svg?1709268226602" alt="">
-                                        <a class="register" href="register.php">đăng ký</a>
-                                        <span>/</span>
-                                        <a class="login" style="margin-right: 0;" href="login.php">đăng nhập</a>
+                                        <?php
+                                        if (isset($_SESSION['email'])) {
+                                            $email = $_SESSION['email'];
+                                            $emailParts = explode('@', $email);
+                                            $username = $emailParts[0];
+                                            echo '<img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-user.svg?1709268226602" alt="">
+                                                <a class="" style="cursor: pointer;">' . $username . '</a>'
+                                        ?>
+                                            <!-- sub menu -->
+                                            <ul class="item-small">
+                                                <li>
+                                                    <a href="" title=""><?php echo $username ?></a>
+                                                </li>
+                                                <li>
+                                                    <a href="" title="Tài Khoản Của Tôi">Tài Khoản Của Tôi</a>
+                                                </li>
+                                                <li>
+                                                    <a href="" title="Đổi Mật Khẩu">Đổi Mật Khẩu</a>
+                                                </li>
+                                                <li>
+                                                    <a href="" title="Sổ Địa Chỉ">Sổ Địa Chỉ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="" title="Đã Xem Gần Đây">Đã Xem Gần Đây</a>
+                                                </li>
+                                                <li>
+                                                    <a href="" title="Sản Phẩm Yêu Thích">Sản Phẩm Yêu Thích</a>
+                                                </li>
+                                                <li>
+                                                    <a href="logout.php" title="Đăng xuất">Đăng xuất</a>
+                                                </li>
+                                            </ul>
+                                        <?php
+                                        } else {
+                                            echo '<img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-user.svg?1709268226602" alt="">
+                                                <a class="register" href="register.php">đăng ký</a>
+                                                <span>/</span>
+                                                <a class="login" style="margin-right: 0;" href="login.php">đăng nhập</a>';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

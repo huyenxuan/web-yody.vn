@@ -122,15 +122,15 @@ class product
     public function search_product($search)
     {
         $query = "SELECT prod.*
-        FROM tbl_product prod
-        LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
-        LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
-        LEFT JOIN tbl_category cat ON csub.category_id = cat.category_id
-        WHERE p.product_name LIKE '%$search%'
-           OR c.category_name LIKE '%$search%'
-           OR csub.categorySub_name LIKE '%$search%'
-           OR cs.classify_name LIKE '%$search%'
-           OR p.product_id = '$search'";
+                FROM tbl_product prod
+                LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
+                LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
+                LEFT JOIN tbl_category cat ON sub.category_id = cat.category_id
+                WHERE prod.product_name LIKE '%$search%'
+                   OR cat.category_name LIKE '%$search%'
+                   OR sub.categorySub_name LIKE '%$search%'
+                   OR cls.classify_name LIKE '%$search%'
+                   OR prod.product_id = '$search'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -144,7 +144,7 @@ class product
     }
     public function show_imgList($product_id)
     {
-        $query = "SELECT * FROM tbl_product_imgList WHERE product_id = '$product_id'";
+        $query = "SELECT * FROM tbl_product_imglist WHERE product_id = '$product_id'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -156,10 +156,11 @@ class product
                 LEFT JOIN tbl_classify cls ON prod.classify_id = cls.classify_id
                 LEFT JOIN tbl_categorysub sub ON cls.categorySub_id = sub.categorySub_id
                 LEFT JOIN tbl_category cat ON sub.category_id = cat.category_id
-                WHERE cat.category_id = '$category_id' LIMIT 20";
+                WHERE cat.category_id = '$category_id'";
         $result = $this->db->select($query);
         return $result;
     }
+
 
     // show product categorysub
     public function show_productCateSub($categorySub_id)
@@ -204,6 +205,39 @@ class blog
         $query = "SELECT *
             FROM tbl_blog 
             WHERE blog_id = '$blog_id'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+}
+
+// account
+class account
+{
+    private $db;
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
+    // login
+    public function loginUser()
+    {
+        $query = "SELECT * FROM tbl_user";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    // register
+    public function registerUser($fullName, $phoneNumber, $email, $password)
+    {
+        $query = "INSERT INTO tbl_user (
+                    fullName,
+                    phoneNumber,
+                    email,
+                    password) 
+                VALUES (
+                    '$fullName',
+                    '$phoneNumber',
+                    '$email',
+                    '$password')";
         $result = $this->db->select($query);
         return $result;
     }

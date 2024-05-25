@@ -15,6 +15,9 @@ $result = $show_category->fetch_assoc();
 <title>Danh mục <?php echo $result['category_name'] ?></title>
 <link rel="stylesheet" href="./css/category.css">
 <style>
+    .list-product {
+        margin-bottom: 80px;
+    }
     .list-product .row {
         display: grid !important;
         grid-template-columns: repeat(5, 1fr) !important;
@@ -190,9 +193,9 @@ $result = $show_category->fetch_assoc();
                 ?>
             </div>
         </div>
-        <div class="more">
+        <!-- <div class="more">
             <a href="">XEM THÊM</a>
-        </div>
+        </div> -->
     </div>
     </main>
 </div>

@@ -1,5 +1,28 @@
 <?php
+ob_start();
+session_start();
 include("./front-end/fe_header.php");
+$account = new account();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $fullName = $_POST['fullName'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $registerUser = $account->registerUser($fullName, $phoneNumber, $email, $password);
+    $_SESSION['email'] = $email;
+    $_SESSION['fullName'] = $fullName;
+
+    // if (isset($_SESSION['email'])) {
+    //     $email = $_SESSION['email'];
+    //     $emailParts = explode('@', $email);
+    //     $username = $emailParts[0];
+    // }
+
+    header('Location: index.php');
+    exit();
+}
 ?>
 <title>Đăng ký Yody</title>
 <link rel="stylesheet" href="./css/account.css">
@@ -10,11 +33,11 @@ include("./front-end/fe_header.php");
         <div class="title">
             <span>ĐĂNG</span><span style="color: #FCAF17;"> KÝ</span>
         </div>
-        <form action="" class="form-login">
-            <input type="name" name="" id="" placeholder="Họ và tên">
-            <input type="text" name="" id="" placeholder="Số điện thoại">
-            <input type="email" name="" id="" placeholder="Email">
-            <input type="password" name="" id="" placeholder="Mật khẩu">
+        <form action="" class="form-login" method="POST">
+            <input type="name" name="fullName" id="" placeholder="Họ và tên">
+            <input type="text" name="phoneNumber" id="" placeholder="Số điện thoại">
+            <input type="email" name="email" id="" placeholder="Email">
+            <input type="password" name="password" id="" placeholder="Mật khẩu">
             <button type="submit">Đăng ký</button>
         </form>
 

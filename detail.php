@@ -18,12 +18,15 @@ $show_imgList = $product->show_imgList($product_id);
         padding-left: 40px;
         list-style: disc;
     }
+
     .add-to-cart-wrapper button {
         background: #fcaf17 !important;
     }
-    .img-list .img{
+
+    .img-list .img {
         width: 390px !important;
     }
+
     .img-list img {
         width: 100% !important;
     }
@@ -151,11 +154,14 @@ $show_imgList = $product->show_imgList($product_id);
                     </div>
                 </div>
                 <div class="add-to-cart-wrapper">
-                    <a href="cart.php"><button type="submit">
-                        <img src="https://bizweb.dktcdn.net/100/438/408/themes/949050/assets/shopping-cartupdate.svg?1714622112152" alt="">
-                        Thêm vào giỏ hàng
-                    </button></a>
-                    <button type="submit">Mua ngay</button>
+                    <form action="cart.php" method="post">
+                        <a href="cart.php">
+                            <button type="submit">
+                                <img src="https://bizweb.dktcdn.net/100/438/408/themes/949050/assets/shopping-cartupdate.svg?1714622112152" alt="">
+                                Thêm vào giỏ hàng
+                            </button></a>
+                        <button type="submit">Mua ngay</button>
+                    </form>
                 </div>
             </div>
         </div>

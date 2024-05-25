@@ -1,3 +1,4 @@
+// tăng giảm số lượng 1 sản phẩm
 let btnDown = document.querySelector('.down');
 let btnIncrease = document.querySelector('.increase');
 let quantity = document.querySelector('.quantity');
@@ -24,3 +25,5 @@ btnIncrease.addEventListener('click', () => {
     updatePrices();
 });
 
+// đếm số lượng sản phẩm
+let count_Product = document.getElementById('count-product');
