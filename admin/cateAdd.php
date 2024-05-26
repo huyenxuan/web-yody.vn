@@ -8,7 +8,7 @@ $category = new category;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category_name = $_POST['category_name'];
     $insert_category = $category->insert_category($category_name);
-    // Chuyển hướng người dùng đến trang cateAdd.php 
+
     header("Location: cateAdd.php?category_name=" . urlencode($category_name));
     exit();
 }

@@ -238,7 +238,17 @@ class account
                     '$phoneNumber',
                     '$email',
                     '$password')";
-        $result = $this->db->select($query);
+        $result = $this->db->insert($query);
+        return $result;
+    }
+
+    // sửa thông tin người dùng
+
+
+    // Xóa tk người dùng
+    public function delete_user($user_id) {
+        $query = "DELETE FROM tbl_user WHERE user_id = '$user_id'";
+        $result = $this->db->delete($query);
         return $result;
     }
 }

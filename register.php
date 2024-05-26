@@ -14,12 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['email'] = $email;
     $_SESSION['fullName'] = $fullName;
 
-    // if (isset($_SESSION['email'])) {
-    //     $email = $_SESSION['email'];
-    //     $emailParts = explode('@', $email);
-    //     $username = $emailParts[0];
-    // }
-
     header('Location: index.php');
     exit();
 }
@@ -34,14 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <span>ĐĂNG</span><span style="color: #FCAF17;"> KÝ</span>
         </div>
         <form action="" class="form-login" method="POST">
-            <input type="name" name="fullName" id="" placeholder="Họ và tên">
-            <input type="text" name="phoneNumber" id="" placeholder="Số điện thoại">
-            <input type="email" name="email" id="" placeholder="Email">
-            <input type="password" name="password" id="" placeholder="Mật khẩu">
+            <input required type="name" name="fullName" id="" placeholder="Họ và tên">
+            <input required type="text" name="phoneNumber" id="" placeholder="Số điện thoại">
+            <input required type="email" name="email" id="" placeholder="Email">
+            <input required type="password" name="password" id="" placeholder="Mật khẩu">
             <button type="submit">Đăng ký</button>
         </form>
-
-        <a href="" class="forgot-pass">Quên mật khẩu</a>
 
         <div class="social-login">
             <div class="txt">

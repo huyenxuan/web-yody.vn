@@ -88,8 +88,8 @@
             <div class="sidebar-sub account">
                 <h3>Quản lý người dùng</h3>
                 <ul>
-                    <li><a href="">Thêm tài khoản</a></li>
-                    <li><a href="">Danh sách tài khoản</a></li>
+                    <li><a href="userAdd.php">Thêm tài khoản</a></li>
+                    <li><a href="userShow.php">Danh sách tài khoản</a></li>
                 </ul>
             </div>
             <div class="sidebar-sub feedback">

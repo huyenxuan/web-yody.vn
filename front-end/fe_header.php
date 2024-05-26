@@ -32,7 +32,8 @@ $account = new account();
 
     .user .item-small {
         top: 90px;
-        left: 1000px;
+        left: unset;
+        right: 0;
     }
     .user .item-small li:not(:nth-last-child(2)) a {
         border: none !important;

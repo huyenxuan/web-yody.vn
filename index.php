@@ -112,7 +112,7 @@ $show_productAccessory = $product->show_productAccessory();
                 <ul class="list-cate">
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=27">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_3_image.png?1712051687905" alt="">
                                 </div>
@@ -124,7 +124,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=28">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_2_image.png?1712051687905" alt="">
                                 </div>
@@ -136,7 +136,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=30">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_6_image.png?1712051687905" alt="">
                                 </div>
@@ -148,7 +148,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=36">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_8_image.png?1712051687905" alt="">
                                 </div>
@@ -160,7 +160,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=34">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_9_image.png?1712051687905" alt="">
                                 </div>
@@ -172,7 +172,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=35">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_7_image.png?1712051687905" alt="">
                                 </div>
@@ -184,7 +184,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=37">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_10_image.png?1712051687905" alt="">
                                 </div>
@@ -196,7 +196,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=12">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_5_image.png?1712051687905" alt="">
                                 </div>
@@ -208,7 +208,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=31">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_1_image.png?1712051687905" alt="">
                                 </div>
@@ -220,7 +220,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=46">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_11_image.png?1712051687905" alt="">
                                 </div>
@@ -232,7 +232,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=16">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_2_child_12_image.png?1712051687905" alt="">
                                 </div>
@@ -259,7 +259,7 @@ $show_productAccessory = $product->show_productAccessory();
                 <ul class="list-cate">
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=51">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_4_image.png?1712119327377" alt="">
                                 </div>
@@ -271,7 +271,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=52">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_2_image.png?1712119327377" alt="">
                                 </div>
@@ -283,7 +283,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=57">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_7_image.png?1712119327377" alt="">
                                 </div>
@@ -295,7 +295,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=59">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_8_image.png?1712119327377" alt="">
                                 </div>
@@ -307,7 +307,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=22">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_5_image.png?1712119327377" alt="">
                                 </div>
@@ -319,7 +319,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=23">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_6_image.png?1712119327377" alt="">
                                 </div>
@@ -331,7 +331,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=19">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_3_image.png?1712119327377" alt="">
                                 </div>
@@ -343,7 +343,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=53">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_3_child_1_image.png?1712119327377" alt="">
                                 </div>
@@ -370,7 +370,7 @@ $show_productAccessory = $product->show_productAccessory();
                 <ul class="list-cate">
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=1">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_3_image.png?1712119327377" alt="">
                                 </div>
@@ -382,7 +382,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=2">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_2_image.png?1712119327377" alt="">
                                 </div>
@@ -394,7 +394,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=4">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_9_image.png?1712119327377" alt="">
                                 </div>
@@ -406,7 +406,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=3">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_12_image.png?1712119327377" alt="">
                                 </div>
@@ -418,7 +418,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=9">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_5_image.png?1712119327377" alt="">
                                 </div>
@@ -430,7 +430,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=7">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_6_image.png?1712119327377" alt="">
                                 </div>
@@ -442,7 +442,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=10">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_11_image.png?1712119327377" alt="">
                                 </div>
@@ -454,7 +454,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=11">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_7_image.png?1712119327377" alt="">
                                 </div>
@@ -466,7 +466,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="classify.php?classify_id=5">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_1_image.png?1712119327377" alt="">
                                 </div>
@@ -478,7 +478,7 @@ $show_productAccessory = $product->show_productAccessory();
                     </li>
                     <li>
                         <div class="group-item">
-                            <a href="">
+                            <a href="categorySub.php?categorySub_id=8">
                                 <div class="image">
                                     <img src="https://bizweb.dktcdn.net/100/438/408/themes/943787/assets/home_danhmuc_1_child_8_image.png?1712119327377" alt="">
                                 </div>
