@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
         }
+        // nếu như found = false thì báo lỗi không đăng nhập được
         if (!$found) {
             echo '<h1 style="color:red; text-align: center">Tên đăng nhập hoặc mật khẩu không đúng!</h1>';
         }

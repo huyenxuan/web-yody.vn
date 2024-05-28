@@ -10,6 +10,7 @@ class product
     {
         $this->db = new Database;
     }
+    // thêm sản phẩm
     public function insert_product()
     {
         $product_name = $_POST['product_name'];

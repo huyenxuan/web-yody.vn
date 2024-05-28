@@ -20,6 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <title>Đăng ký Yody</title>
 <link rel="stylesheet" href="./css/account.css">
+<style>
+    .main-content {
+        margin-top: 50px;
+    }
+</style>
 <!-- register -->
 <div class="main-content">
     <div class="login-wrap">

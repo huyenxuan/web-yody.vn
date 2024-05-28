@@ -7,6 +7,7 @@ $showUser = $user->show_user();
 
 
 ?>
+<title>Danh sách người dùng</title>
 <style>
     .main-content {
         height: 100% !important;

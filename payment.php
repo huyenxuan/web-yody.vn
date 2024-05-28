@@ -16,7 +16,7 @@
             <div class="wrap-main">
                 <header class="main-header">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/logo.svg?1709194355144"
                                 alt="">
                         </a>
@@ -91,9 +91,6 @@
                                         </label>
                                     </div>
                                 </div>
-                            </section>
-                            <section>
-                                <input type="radio" name="" id=""><input type="radio" name="" id=""><input type="radio" name="" id="">
                             </section>
                         </div>
                     </article>

@@ -36,6 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         right: 15px;
         cursor: pointer;
     }
+    .main-content {
+        margin-top: 50px;
+    }
 </style>
 <!-- register -->
 <div class="main-content">

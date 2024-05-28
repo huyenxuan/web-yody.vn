@@ -55,6 +55,7 @@ class user
     {
         $query = "DELETE FROM tbl_user WHERE user_id = '$user_id'";
         $result = $this->db->delete($query);
+        header('location: userShow.php');
         return $result;
     }
     

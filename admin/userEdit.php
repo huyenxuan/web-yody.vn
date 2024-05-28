@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include("view/header.php");
 include("view/sidebar.php");
 ?>
-<title>Thêm tài khoản người dùng</title>
+<title>Chỉnh sửa thông tin người dùng</title>
 <!-- main content -->
 <style>
     input {

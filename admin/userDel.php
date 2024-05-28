@@ -1,7 +1,7 @@
 <?php
-include('class/showFrontEnd.php');
+include('class/userClass.php');
 
-$account = new account();
+$user = new user();
 $user_id = $_GET['user_id'];
-$delete_user = $account->delete_user($user_id);
+$delete_user = $user->delete_user($user_id);
 ?>

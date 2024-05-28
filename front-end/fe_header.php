@@ -3,7 +3,7 @@ session_start();
 include("admin/class/showFrontEnd.php");
 
 $product = new product;
-$account = new account();
+$account = new account;
 
 ?>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
@@ -58,7 +58,7 @@ $account = new account();
                                 <div class="search-ctn">
                                     <div class="search">
                                         <form action="search.php" class="form-search" method="GET">
-                                            <input required name="keyword" type="text" placeholder="Tìm kiếm" title="Vui lòng điền vào trường này" value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
+                                            <input required name="keyword" type="text" placeholder="Tìm kiếm" value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
                                             <button>
                                                 <img src="https://bizweb.dktcdn.net/100/438/408/themes/936254/assets/icon-search.svg" alt="">
                                             </button>
@@ -464,7 +464,7 @@ $account = new account();
                                                 </ul>
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="category.php?category_id=<?php echo 4 ?>" title="TRẺ EM">trẻ em</a>
+                                                <a class="dad-list" href="category.php?category_id=4" title="TRẺ EM">trẻ em</a>
                                                 <!-- menu mega -->
                                                 <ul class="mega-menu mega-menu-type2">
                                                     <li class="mega-menu-img">
@@ -637,7 +637,7 @@ $account = new account();
                                                 </ul>
                                             </li>
                                             <li class="nav-item has-child has-mega">
-                                                <a class="dad-list" href="" title="BỘ SƯU TẬP">bộ sưu tập</a>
+                                                <a class="dad-list" href="category.php?category_id=5" title="BỘ SƯU TẬP">bộ sưu tập</a>
                                                 <!-- menu mega -->
                                                 <ul class="mega-menu">
                                                     <li class="parrent-mega">
@@ -680,10 +680,10 @@ $account = new account();
                                                 </ul>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="dad-list" href="" title="ĐỒNG PHỤC">đồng phục</a>
+                                                <a class="dad-list" href="category.php?category_id=6" title="ĐỒNG PHỤC">đồng phục</a>
                                             </li>
                                             <li class="nav-item has-child">
-                                                <a class="dad-list" href="" title="VỀ YODY">về yody</a>
+                                                <a class="dad-list" href="category.php?category_id=7" title="VỀ YODY">về yody</a>
                                                 <!-- sub menu -->
                                                 <ul class="item-small">
                                                     <li>
@@ -742,6 +742,7 @@ $account = new account();
                                 </div>
                             </div>
                         </div>
+                        <!-- tài khoản, giỏ hàng -->
                         <div class="topbar-bottom__right">
                             <div class="topbar-bottom__right-ctn">
                                 <div class="function">
@@ -752,6 +753,7 @@ $account = new account();
                                             <span class="title">GIỎ HÀNG</span>
                                         </a>
                                     </div>
+                                    <!-- người dùng -->
                                     <div class="user">
                                         <?php
                                         if (isset($_SESSION['email'])) {

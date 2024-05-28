@@ -156,6 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button>Thêm</button>
     </form>
 </div>
+<!-- ckeditor -->
 <script>
     // This sample still does not showcase all CKEditor&nbsp;5 features (!)
     // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
